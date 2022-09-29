@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8FEA025528E631F600E89917 /* SunCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025428E631F600E89917 /* SunCloudApp.swift */; };
+		8FEA025728E631F600E89917 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025628E631F600E89917 /* ContentView.swift */; };
+		8FEA025928E631F700E89917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEA025828E631F700E89917 /* Assets.xcassets */; };
+		8FEA025C28E631F700E89917 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FEA025B28E631F700E89917 /* Preview Assets.xcassets */; };
+		8FEA026628E631F700E89917 /* SunCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA026528E631F700E89917 /* SunCloudTests.swift */; };
+		8FEA027028E631F700E89917 /* SunCloudUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA026F28E631F700E89917 /* SunCloudUITests.swift */; };
+		8FEA027228E631F700E89917 /* SunCloudUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA027128E631F700E89917 /* SunCloudUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8FEA026228E631F700E89917 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FEA024928E631F600E89917 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FEA025028E631F600E89917;
+			remoteInfo = SunCloud;
+		};
+		8FEA026C28E631F700E89917 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FEA024928E631F600E89917 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FEA025028E631F600E89917;
+			remoteInfo = SunCloud;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8FEA025128E631F600E89917 /* SunCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FEA025428E631F600E89917 /* SunCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCloudApp.swift; sourceTree = "<group>"; };
+		8FEA025628E631F600E89917 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8FEA025828E631F700E89917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8FEA025B28E631F700E89917 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8FEA026128E631F700E89917 /* SunCloudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FEA026528E631F700E89917 /* SunCloudTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCloudTests.swift; sourceTree = "<group>"; };
+		8FEA026B28E631F700E89917 /* SunCloudUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SunCloudUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FEA026F28E631F700E89917 /* SunCloudUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCloudUITests.swift; sourceTree = "<group>"; };
+		8FEA027128E631F700E89917 /* SunCloudUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCloudUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FEA024E28E631F600E89917 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FEA025E28E631F700E89917 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FEA026828E631F700E89917 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8FEA024828E631F600E89917 = {
+			isa = PBXGroup;
+			children = (
+				8FEA025328E631F600E89917 /* SunCloud */,
+				8FEA026428E631F700E89917 /* SunCloudTests */,
+				8FEA026E28E631F700E89917 /* SunCloudUITests */,
+				8FEA025228E631F600E89917 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8FEA025228E631F600E89917 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FEA025128E631F600E89917 /* SunCloud.app */,
+				8FEA026128E631F700E89917 /* SunCloudTests.xctest */,
+				8FEA026B28E631F700E89917 /* SunCloudUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8FEA025328E631F600E89917 /* SunCloud */ = {
+			isa = PBXGroup;
+			children = (
+				8FEA025428E631F600E89917 /* SunCloudApp.swift */,
+				8FEA025628E631F600E89917 /* ContentView.swift */,
+				8FEA025828E631F700E89917 /* Assets.xcassets */,
+				8FEA025A28E631F700E89917 /* Preview Content */,
+			);
+			path = SunCloud;
+			sourceTree = "<group>";
+		};
+		8FEA025A28E631F700E89917 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8FEA025B28E631F700E89917 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8FEA026428E631F700E89917 /* SunCloudTests */ = {
+			isa = PBXGroup;
+			children = (
+				8FEA026528E631F700E89917 /* SunCloudTests.swift */,
+			);
+			path = SunCloudTests;
+			sourceTree = "<group>";
+		};
+		8FEA026E28E631F700E89917 /* SunCloudUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8FEA026F28E631F700E89917 /* SunCloudUITests.swift */,
+				8FEA027128E631F700E89917 /* SunCloudUITestsLaunchTests.swift */,
+			);
+			path = SunCloudUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8FEA025028E631F600E89917 /* SunCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FEA027528E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloud" */;
+			buildPhases = (
+				8FEA024D28E631F600E89917 /* Sources */,
+				8FEA024E28E631F600E89917 /* Frameworks */,
+				8FEA024F28E631F600E89917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SunCloud;
+			productName = SunCloud;
+			productReference = 8FEA025128E631F600E89917 /* SunCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8FEA026028E631F700E89917 /* SunCloudTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FEA027828E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloudTests" */;
+			buildPhases = (
+				8FEA025D28E631F700E89917 /* Sources */,
+				8FEA025E28E631F700E89917 /* Frameworks */,
+				8FEA025F28E631F700E89917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FEA026328E631F700E89917 /* PBXTargetDependency */,
+			);
+			name = SunCloudTests;
+			productName = SunCloudTests;
+			productReference = 8FEA026128E631F700E89917 /* SunCloudTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8FEA026A28E631F700E89917 /* SunCloudUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FEA027B28E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloudUITests" */;
+			buildPhases = (
+				8FEA026728E631F700E89917 /* Sources */,
+				8FEA026828E631F700E89917 /* Frameworks */,
+				8FEA026928E631F700E89917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FEA026D28E631F700E89917 /* PBXTargetDependency */,
+			);
+			name = SunCloudUITests;
+			productName = SunCloudUITests;
+			productReference = 8FEA026B28E631F700E89917 /* SunCloudUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8FEA024928E631F600E89917 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					8FEA025028E631F600E89917 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					8FEA026028E631F700E89917 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8FEA025028E631F600E89917;
+					};
+					8FEA026A28E631F700E89917 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 8FEA025028E631F600E89917;
+					};
+				};
+			};
+			buildConfigurationList = 8FEA024C28E631F600E89917 /* Build configuration list for PBXProject "SunCloud" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8FEA024828E631F600E89917;
+			productRefGroup = 8FEA025228E631F600E89917 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8FEA025028E631F600E89917 /* SunCloud */,
+				8FEA026028E631F700E89917 /* SunCloudTests */,
+				8FEA026A28E631F700E89917 /* SunCloudUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8FEA024F28E631F600E89917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEA025C28E631F700E89917 /* Preview Assets.xcassets in Resources */,
+				8FEA025928E631F700E89917 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FEA025F28E631F700E89917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FEA026928E631F700E89917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8FEA024D28E631F600E89917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEA025728E631F600E89917 /* ContentView.swift in Sources */,
+				8FEA025528E631F600E89917 /* SunCloudApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FEA025D28E631F700E89917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEA026628E631F700E89917 /* SunCloudTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FEA026728E631F700E89917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FEA027228E631F700E89917 /* SunCloudUITestsLaunchTests.swift in Sources */,
+				8FEA027028E631F700E89917 /* SunCloudUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8FEA026328E631F700E89917 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FEA025028E631F600E89917 /* SunCloud */;
+			targetProxy = 8FEA026228E631F700E89917 /* PBXContainerItemProxy */;
+		};
+		8FEA026D28E631F700E89917 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FEA025028E631F600E89917 /* SunCloud */;
+			targetProxy = 8FEA026C28E631F700E89917 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8FEA027328E631F700E89917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8FEA027428E631F700E89917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8FEA027628E631F700E89917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SunCloud/Preview Content\"";
+				DEVELOPMENT_TEAM = UMCL8U74S6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8FEA027728E631F700E89917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SunCloud/Preview Content\"";
+				DEVELOPMENT_TEAM = UMCL8U74S6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8FEA027928E631F700E89917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UMCL8U74S6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloudTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunCloud.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SunCloud";
+			};
+			name = Debug;
+		};
+		8FEA027A28E631F700E89917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UMCL8U74S6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloudTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SunCloud.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SunCloud";
+			};
+			name = Release;
+		};
+		8FEA027C28E631F700E89917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UMCL8U74S6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloudUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SunCloud;
+			};
+			name = Debug;
+		};
+		8FEA027D28E631F700E89917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UMCL8U74S6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloudUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SunCloud;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8FEA024C28E631F600E89917 /* Build configuration list for PBXProject "SunCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FEA027328E631F700E89917 /* Debug */,
+				8FEA027428E631F700E89917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FEA027528E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FEA027628E631F700E89917 /* Debug */,
+				8FEA027728E631F700E89917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FEA027828E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloudTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FEA027928E631F700E89917 /* Debug */,
+				8FEA027A28E631F700E89917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FEA027B28E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloudUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FEA027C28E631F700E89917 /* Debug */,
+				8FEA027D28E631F700E89917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8FEA024928E631F600E89917 /* Project object */;
+}
