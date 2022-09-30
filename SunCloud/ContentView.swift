@@ -67,7 +67,7 @@ struct ContentView: View {
                         }
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.blue.opacity(0))
-                        Section("🕦 Prévisions sur 4 heures") {
+                        Section("🕦 Prévisions sur 5 heures") {
                             HStack(alignment: .center) {
                                 Spacer()
                                 ForEach(previsionsbh, id: \.self) { i in
