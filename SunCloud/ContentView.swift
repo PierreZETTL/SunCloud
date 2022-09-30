@@ -32,7 +32,7 @@ struct ContentView: View {
     }
     
     
-    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5]), current_weather: CurrentData(time: "test", temperature: 0.0))
+    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15], rain: [0.0]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5], rain_sum: [0.0]), current_weather: CurrentData(time: "test", temperature: 0.0))
     
     @State var currentHour = Calendar.current.component(.hour, from: Date())
     @State var currentDay = Calendar.current.component(.weekday, from: Date())
@@ -85,10 +85,17 @@ struct ContentView: View {
                                                     .padding(.horizontal, 9.0)
                                             }
                                         }
-                                        Image(systemName: "cloud.sun.fill")
-                                            .padding(.horizontal, 10.0)
-                                            .padding(.vertical, 1.0)
-                                            .foregroundColor(Color.yellow)
+                                        if weather.hourly.rain[i] > 0 {
+                                            Image(systemName: "cloud.rain.fill")
+                                                .padding(.horizontal, 10.0)
+                                                .padding(.vertical, 1.0)
+                                                .foregroundColor(Color.white)
+                                        } else {
+                                            Image(systemName: "cloud.sun.fill")
+                                                .padding(.horizontal, 10.0)
+                                                .padding(.vertical, 1.0)
+                                                .foregroundColor(Color.yellow)
+                                        }
                                         if i == currentHour {
                                             Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
                                                 .padding(.horizontal, 10.0)
@@ -106,8 +113,13 @@ struct ContentView: View {
                         Section("📆 Prévisions sur 7 jours") {
                             ForEach(previsionsbd, id: \.self) { i in
                                 HStack {
-                                    Image(systemName: "cloud.sun.fill")
-                                        .foregroundColor(Color.yellow)
+                                    if weather.daily.rain_sum[i] > 0 {
+                                        Image(systemName: "cloud.rain.fill")
+                                            .foregroundColor(Color.white)
+                                    } else {
+                                        Image(systemName: "cloud.sun.fill")
+                                            .foregroundColor(Color.yellow)
+                                    }
                                     if i == 0 {
                                         Text("Aujourd'hui")
                                             .fontWeight(.semibold)
