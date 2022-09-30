@@ -55,7 +55,7 @@ struct ContentView: View {
                                         .padding(.vertical, 1.0)
                                         .foregroundColor(Color.yellow)
                                     if i == currentHour {
-                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[0]))°")
+                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
                                             .padding(.horizontal, 10.0)
                                             .fontWeight(.semibold)
                                     } else {
@@ -83,12 +83,14 @@ struct ContentView: View {
                                 }
                                 Spacer()
                                 if i == 0 {
-                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  ------")
+                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
                                         .fontWeight(.semibold)
+                                    Rectangle().frame(width: 60, height: 2)
                                     Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
                                         .fontWeight(.semibold)
                                 } else {
-                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  ------")
+                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
+                                    Rectangle().frame(width: 60, height: 2)
                                     Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
                                 }
                             }
