@@ -12,9 +12,7 @@ struct ContentView: View {
     @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), current_weather: CurrentData(time: "test", temperature: 0.0))
     
     @State var previsions = [Int]()
-    
-    let timeFormatter = DateFormatter()
-    
+        
     var body: some View {
         VStack {
             Text("Localisation actuelle")
@@ -31,11 +29,11 @@ struct ContentView: View {
                         Spacer()
                         ForEach(previsions, id: \.self) { i in
                             VStack(alignment: .center) {
-                                if i == 0 {
+                                if i == Calendar.current.component(.hour, from: Date()) {
                                     Text("Act.")
                                         .padding(.horizontal, 10.0)
                                 } else {
-                                    Text("\(timeFormatter.string(from: Date.now+TimeInterval(i*3600))) h")
+                                    Text("\(i) h")
                                         .padding(.horizontal, 10.0)
                                 }
                                 Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
@@ -57,8 +55,7 @@ struct ContentView: View {
             CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
                 self.weather = weather
-                self.previsions = [0, 1, 2, 3, 4]
-                timeFormatter.dateFormat = "HH"
+                self.previsions = [Calendar.current.component(.hour, from: Date()), Calendar.current.component(.hour, from: Date())+1, Calendar.current.component(.hour, from: Date())+2, Calendar.current.component(.hour, from: Date())+3, Calendar.current.component(.hour, from: Date())+4]
             }
         }
     }
