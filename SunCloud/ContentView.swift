@@ -69,23 +69,18 @@ struct ContentView: View {
                     Section("📆 Prévisions sur 5 jours") {
                         ForEach(previsionsbd, id: \.self) { i in
                             HStack {
+                                Image(systemName: "cloud.sun.fill")
+                                    .foregroundColor(Color.yellow)
                                 if i == 0 {
                                     Text("Auj.")
-                                        .frame(width: 125, alignment: .leading)
-                                        .padding(.leading, 20.0)
                                 } else if currentDay+i > 7 {
                                     Text(weekdays[currentDay+(i-7)] ?? "Erreur")
-                                        .frame(width: 125, alignment: .leading)
-                                        .padding(.leading, 20.0)
                                 } else {
                                     Text(weekdays[currentDay+i] ?? "Erreur")
-                                        .frame(width: 125, alignment: .leading)
-                                        .padding(.leading, 20.0)
                                 }
-                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  -----")
-                                    .frame(width: 100, alignment: .trailing)
+                                Spacer()
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  ------")
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
-                                    .frame(width: 100, alignment: .leading)
                             }.foregroundColor(Color.white)
                         }
                     }
