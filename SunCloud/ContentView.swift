@@ -9,6 +9,29 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
+    @State var cityName = "Erreur : Position introuvable"
+    
+    func reverseGeocode() {
+        let location = CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0)
+        
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            guard let placemark = placemarks?.first else { return }
+            
+            let reversedGeoLocation = ReversedGeoLocation(with: placemark)
+            print(reversedGeoLocation.city)
+            self.cityName = reversedGeoLocation.city
+        }
+    }
+    
+    struct ReversedGeoLocation {
+        let city: String
+        
+        init(with placemark: CLPlacemark) {
+            self.city = placemark.locality ?? ""
+        }
+    }
+    
+    
     @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5]), current_weather: CurrentData(time: "test", temperature: 0.0))
     
     @State var currentHour = Calendar.current.component(.hour, from: Date())
@@ -27,10 +50,9 @@ struct ContentView: View {
                     List {
                         HStack {
                             Spacer()
-                            Text("Localisation actuelle")
-                                .font(.system(size: 25))
-                                .fontWeight(.semibold)
-                                .padding(.bottom, 1.0)
+                            Text("\(cityName)")
+                                .font(.system(size: 30))
+                                .frame(height: 35)
                             Spacer()
                         }
                         .listRowSeparator(.hidden)
@@ -38,8 +60,9 @@ struct ContentView: View {
                         HStack {
                             Spacer()
                             Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
-                                .font(.system(size: 60))
-                                .fontWeight(.semibold)
+                                .font(.system(size: 100))
+                                .fontWeight(.thin)
+                                .frame(height: 70)
                             Spacer()
                         }
                         .listRowSeparator(.hidden)
@@ -50,7 +73,7 @@ struct ContentView: View {
                                 ForEach(previsionsbh, id: \.self) { i in
                                     VStack(alignment: .center) {
                                         if i == currentHour {
-                                            Text("Mtn.")
+                                            Text("Act.")
                                                 .padding(.horizontal, 9.0)
                                                 .fontWeight(.semibold)
                                         } else {
@@ -135,6 +158,8 @@ struct ContentView: View {
                 self.weather = weather
                 self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
                 self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
+                
+                self.reverseGeocode()
             }
         }
     }
