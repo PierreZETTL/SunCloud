@@ -13,6 +13,8 @@ struct ContentView: View {
     
     @State var previsions = [Int]()
     
+    let timeFormatter = DateFormatter()
+    
     var body: some View {
         VStack {
             Text("Localisation actuelle")
@@ -24,14 +26,29 @@ struct ContentView: View {
             Text("Coordonnées : \(String(format: "%.2f", weather.latitude)) / \(String(format: "%.2f", weather.longitude))")
                 .font(.system(size: 15))
             List {
-                Section("Prévisions") {
-                    ForEach(previsions, id: \.self) { i in
-                        HStack {
-                            Text(Date.now+TimeInterval(i*3600), style: .date)
-                            Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                .padding(.leading)
+                Section("🕦 Prévisions sur 4 heures") {
+                    HStack(alignment: .center) {
+                        Spacer()
+                        ForEach(previsions, id: \.self) { i in
+                            VStack(alignment: .center) {
+                                if i == 0 {
+                                    Text("Act.")
+                                        .padding(.horizontal, 10.0)
+                                } else {
+                                    Text("\(timeFormatter.string(from: Date.now+TimeInterval(i*3600))) h")
+                                        .padding(.horizontal, 10.0)
+                                }
+                                Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                    .padding(.horizontal, 10.0)
+                            }
                         }
+                        Spacer()
                     }
+                }
+                .listRowBackground(Color.blue.opacity(0.25))
+                Section("📆 Prévisions sur 5 jours") {
+                    Text("Test")
+                    Text("Test")
                 }
                 .listRowBackground(Color.blue.opacity(0.25))
             }.scrollContentBackground(.hidden)
@@ -40,7 +57,8 @@ struct ContentView: View {
             CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
                 self.weather = weather
-                self.previsions = [24, 48, 72, 96, 120]
+                self.previsions = [0, 1, 2, 3, 4]
+                timeFormatter.dateFormat = "HH"
             }
         }
     }
