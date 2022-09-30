@@ -66,7 +66,7 @@ struct ContentView: View {
                         }
                     }
                     .listRowBackground(Color.blue.opacity(0.7))
-                    Section("📆 Prévisions sur 5 jours") {
+                    Section("📆 Prévisions sur 7 jours") {
                         ForEach(previsionsbd, id: \.self) { i in
                             HStack {
                                 Image(systemName: "cloud.sun.fill")
@@ -95,7 +95,7 @@ struct ContentView: View {
             WeatherAPI().loadData { (weather) in
                 self.weather = weather
                 self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
-                self.previsionsbd = [0, 1, 2, 3, 4]
+                self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
             }
         }
     }
