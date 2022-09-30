@@ -19,20 +19,31 @@ struct ContentView: View {
     let weekdays = [1: "Dimanche", 2: "Lundi", 3: "Mardi", 4: "Mercredi", 5: "Jeudi", 6: "Vendredi", 7: "Samedi"]
         
     var body: some View {
-        ZStack {
-            Color.blue.opacity(0.85)
-                .ignoresSafeArea()
-            ScrollView {
+        NavigationView {
+            ZStack {
+                Color.blue.opacity(0.85)
+                    .ignoresSafeArea()
                 VStack {
-                    Text("Localisation actuelle")
-                        .font(.system(size: 25))
-                        .fontWeight(.semibold)
-                        .padding(.top, 25.0)
-                        .padding(.bottom, 1.0)
-                    Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
-                        .font(.system(size: 60))
-                        .fontWeight(.semibold)
                     List {
+                        HStack {
+                            Spacer()
+                            Text("Localisation actuelle")
+                                .font(.system(size: 25))
+                                .fontWeight(.semibold)
+                                .padding(.bottom, 1.0)
+                            Spacer()
+                        }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.blue.opacity(0))
+                        HStack {
+                            Spacer()
+                            Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
+                                .font(.system(size: 60))
+                                .fontWeight(.semibold)
+                            Spacer()
+                        }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.blue.opacity(0))
                         Section("🕦 Prévisions sur 4 heures") {
                             HStack(alignment: .center) {
                                 Spacer()
@@ -109,14 +120,15 @@ struct ContentView: View {
                         }
                         .listRowBackground(Color.blue.opacity(0.9))
                     }.scrollContentBackground(.hidden)
-                    .frame(height: UIScreen.main.bounds.size.height-300)
                     Text("Coordonnées : \(String(format: "%.2f", weather.latitude)) / \(String(format: "%.2f", weather.longitude))")
                         .font(.system(size: 15))
                         .foregroundColor(Color.white)
+                        .padding(.bottom, 5.0)
                 }
                 .foregroundColor(Color.white)
             }
         }
+        
         .onAppear {
             CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
