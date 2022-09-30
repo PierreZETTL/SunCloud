@@ -20,7 +20,7 @@ struct ContentView: View {
         
     var body: some View {
         ZStack {
-            Color.blue.opacity(0.1)
+            Color.blue.opacity(0.85)
                 .ignoresSafeArea()
             VStack {
                 Text("Localisation actuelle")
@@ -40,55 +40,67 @@ struct ContentView: View {
                                     if i == currentHour {
                                         Text("Act.")
                                             .padding(.horizontal, 10.0)
-                                            .foregroundColor(Color.white)
+                                            .fontWeight(.semibold)
                                     } else {
                                         if i > 24 {
                                             Text("\(i-24) h")
                                                 .padding(.horizontal, 10.0)
-                                                .foregroundColor(Color.white)
                                         } else {
                                             Text("\(i) h")
                                                 .padding(.horizontal, 10.0)
-                                                .foregroundColor(Color.white)
                                         }
                                     }
                                     Image(systemName: "cloud.sun.fill")
                                         .padding(.horizontal, 10.0)
                                         .padding(.vertical, 1.0)
                                         .foregroundColor(Color.yellow)
-                                    Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                        .padding(.horizontal, 10.0)
-                                        .foregroundColor(Color.white)
-                                        .fontWeight(.semibold)
+                                    if i == currentHour {
+                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[0]))°")
+                                            .padding(.horizontal, 10.0)
+                                            .fontWeight(.semibold)
+                                    } else {
+                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                            .padding(.horizontal, 10.0)
+                                    }
                                 }
                             }
                             Spacer()
                         }
                     }
-                    .listRowBackground(Color.blue.opacity(0.7))
+                    .listRowBackground(Color.blue.opacity(0.9))
                     Section("📆 Prévisions sur 7 jours") {
                         ForEach(previsionsbd, id: \.self) { i in
                             HStack {
                                 Image(systemName: "cloud.sun.fill")
                                     .foregroundColor(Color.yellow)
                                 if i == 0 {
-                                    Text("Auj.")
+                                    Text("Aujourd'hui")
+                                        .fontWeight(.semibold)
                                 } else if currentDay+i > 7 {
                                     Text(weekdays[currentDay+(i-7)] ?? "Erreur")
                                 } else {
                                     Text(weekdays[currentDay+i] ?? "Erreur")
                                 }
                                 Spacer()
-                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  ------")
-                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
-                            }.foregroundColor(Color.white)
+                                if i == 0 {
+                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  ------")
+                                        .fontWeight(.semibold)
+                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                        .fontWeight(.semibold)
+                                } else {
+                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  ------")
+                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                }
+                            }
                         }
                     }
-                    .listRowBackground(Color.blue.opacity(0.7))
+                    .listRowBackground(Color.blue.opacity(0.9))
                 }.scrollContentBackground(.hidden)
                 Text("Coordonnées : \(String(format: "%.2f", weather.latitude)) / \(String(format: "%.2f", weather.longitude))")
                     .font(.system(size: 15))
+                    .foregroundColor(Color.white)
             }
+            .foregroundColor(Color.white)
         }
         .onAppear {
             CLLocationManager().requestWhenInUseAuthorization()
