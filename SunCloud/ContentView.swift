@@ -91,10 +91,17 @@ struct ContentView: View {
                                                 .padding(.vertical, 1.0)
                                                 .foregroundColor(Color.white)
                                         } else {
-                                            Image(systemName: "cloud.sun.fill")
-                                                .padding(.horizontal, 10.0)
-                                                .padding(.vertical, 1.0)
-                                                .foregroundColor(Color.yellow)
+                                            if i < 8 || i > 20 {
+                                                Image(systemName: "moon.stars.fill")
+                                                    .padding(.horizontal, 10.0)
+                                                    .padding(.vertical, 1.0)
+                                                    .foregroundColor(Color.white)
+                                            } else {
+                                                Image(systemName: "sun.max.fill")
+                                                    .padding(.horizontal, 10.0)
+                                                    .padding(.vertical, 1.0)
+                                                    .foregroundColor(Color.yellow)
+                                            }
                                         }
                                         if i == currentHour {
                                             Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
@@ -118,7 +125,7 @@ struct ContentView: View {
                                             .foregroundColor(Color.white)
                                             .frame(width: 25)
                                     } else {
-                                        Image(systemName: "cloud.sun.fill")
+                                        Image(systemName: "sun.max.fill")
                                             .foregroundColor(Color.yellow)
                                             .frame(width: 25)
                                     }
