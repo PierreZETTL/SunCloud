@@ -34,6 +34,5 @@ class WeatherAPI : ObservableObject{
                 completion(weather)
             }
         }.resume()
-        
     }
 }

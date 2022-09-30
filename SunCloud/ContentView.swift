@@ -13,20 +13,21 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             Text("☀️ SunCloud ☁️")
                 .font(.system(size: 45))
-            
-            Spacer()
-            Text("Latitude : \(weather.latitude)")
-            Text("Longitude : \(weather.longitude)")
-            Spacer()
-            Text("Température : \(weather.hourly.temperature_2m[0])")
-            Text("À : \(weather.hourly.time[0])")
-            Spacer()
-            Spacer()
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+                .padding(.top)
+            List {
+                Section("Coordonnées") {
+                    Text("Latitude : \(weather.latitude)")
+                    Text("Longitude : \(weather.longitude)")
+                }
+                Section("Conditions actuelles") {
+                    Text("Température : \(weather.hourly.temperature_2m[0])")
+                }
+            }
         }
-        .padding()
         .onAppear {
             CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
