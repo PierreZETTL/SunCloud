@@ -9,10 +9,14 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), current_weather: CurrentData(time: "test", temperature: 0.0))
+    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5]), current_weather: CurrentData(time: "test", temperature: 0.0))
     
     @State var currentHour = Calendar.current.component(.hour, from: Date())
+    @State var currentDay = Calendar.current.component(.weekday, from: Date())
     @State var previsionsbh = [Int]()
+    @State var previsionsbd = [Int]()
+    
+    let weekdays = [1: "Dimanche", 2: "Lundi", 3: "Mardi", 4: "Mercredi", 5: "Jeudi", 6: "Vendredi", 7: "Samedi"]
         
     var body: some View {
         ZStack {
@@ -38,9 +42,15 @@ struct ContentView: View {
                                             .padding(.horizontal, 10.0)
                                             .foregroundColor(Color.white)
                                     } else {
-                                        Text("\(i) h")
-                                            .padding(.horizontal, 10.0)
-                                            .foregroundColor(Color.white)
+                                        if i > 24 {
+                                            Text("\(i-24) h")
+                                                .padding(.horizontal, 10.0)
+                                                .foregroundColor(Color.white)
+                                        } else {
+                                            Text("\(i) h")
+                                                .padding(.horizontal, 10.0)
+                                                .foregroundColor(Color.white)
+                                        }
                                     }
                                     Image(systemName: "cloud.sun.fill")
                                         .padding(.horizontal, 10.0)
@@ -57,10 +67,27 @@ struct ContentView: View {
                     }
                     .listRowBackground(Color.blue.opacity(0.7))
                     Section("📆 Prévisions sur 5 jours") {
-                        Text("Test")
-                            .foregroundColor(Color.white)
-                        Text("Test")
-                            .foregroundColor(Color.white)
+                        ForEach(previsionsbd, id: \.self) { i in
+                            HStack {
+                                if i == 0 {
+                                    Text("Auj.")
+                                        .frame(width: 125, alignment: .leading)
+                                        .padding(.leading, 20.0)
+                                } else if currentDay+i > 7 {
+                                    Text(weekdays[currentDay+(i-7)] ?? "Erreur")
+                                        .frame(width: 125, alignment: .leading)
+                                        .padding(.leading, 20.0)
+                                } else {
+                                    Text(weekdays[currentDay+i] ?? "Erreur")
+                                        .frame(width: 125, alignment: .leading)
+                                        .padding(.leading, 20.0)
+                                }
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°  -----")
+                                    .frame(width: 100, alignment: .trailing)
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                    .frame(width: 100, alignment: .leading)
+                            }.foregroundColor(Color.white)
+                        }
                     }
                     .listRowBackground(Color.blue.opacity(0.7))
                 }.scrollContentBackground(.hidden)
@@ -73,6 +100,7 @@ struct ContentView: View {
             WeatherAPI().loadData { (weather) in
                 self.weather = weather
                 self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
+                self.previsionsbd = [0, 1, 2, 3, 4]
             }
         }
     }
