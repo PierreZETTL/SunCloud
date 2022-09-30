@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View {
     @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]))
@@ -27,6 +28,7 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
+            CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
                 self.weather = weather
             }
