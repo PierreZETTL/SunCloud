@@ -116,9 +116,11 @@ struct ContentView: View {
                                     if weather.daily.rain_sum[i] > 0 {
                                         Image(systemName: "cloud.rain.fill")
                                             .foregroundColor(Color.white)
+                                            .frame(width: 25)
                                     } else {
                                         Image(systemName: "cloud.sun.fill")
                                             .foregroundColor(Color.yellow)
+                                            .frame(width: 25)
                                     }
                                     if i == 0 {
                                         Text("Aujourd'hui")
