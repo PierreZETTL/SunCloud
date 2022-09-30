@@ -9,29 +9,38 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]))
+    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), current_weather: CurrentData(time: "test", temperature: 0.0))
+    
+    @State var previsions = [Int]()
     
     var body: some View {
         VStack {
-            Text("☀️ SunCloud ☁️")
-                .font(.system(size: 45))
+            Text("Localisation actuelle")
+                .font(.system(size: 25))
                 .fontWeight(.semibold)
-                .multilineTextAlignment(.center)
                 .padding(.top)
+            Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
+                .font(.system(size: 45))
+            Text("Coordonnées : \(String(format: "%.2f", weather.latitude)) / \(String(format: "%.2f", weather.longitude))")
+                .font(.system(size: 15))
             List {
-                Section("Coordonnées") {
-                    Text("Latitude : \(weather.latitude)")
-                    Text("Longitude : \(weather.longitude)")
+                Section("Prévisions") {
+                    ForEach(previsions, id: \.self) { i in
+                        HStack {
+                            Text(Date.now+TimeInterval(i*3600), style: .date)
+                            Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                .padding(.leading)
+                        }
+                    }
                 }
-                Section("Conditions actuelles") {
-                    Text("Température : \(weather.hourly.temperature_2m[0])")
-                }
-            }
+                .listRowBackground(Color.blue.opacity(0.25))
+            }.scrollContentBackground(.hidden)
         }
         .onAppear {
             CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
                 self.weather = weather
+                self.previsions = [24, 48, 72, 96, 120]
             }
         }
     }

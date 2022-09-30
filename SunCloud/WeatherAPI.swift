@@ -12,6 +12,7 @@ struct Weather: Codable {
     let latitude: Float
     let longitude: Float
     let hourly: HourlyData
+    let current_weather: CurrentData
 }
 
 struct HourlyData: Codable {
@@ -19,11 +20,16 @@ struct HourlyData: Codable {
     let temperature_2m: [Float]
 }
 
+struct CurrentData: Codable {
+    let time: String
+    let temperature: Float
+}
+
 class WeatherAPI : ObservableObject{
-    @Published var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]))
+    @Published var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15]), current_weather: CurrentData(time: "test", temperature: 0.0))
     
     func loadData(completion:@escaping (Weather) -> ()) {
-        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(CLLocationManager().location?.coordinate.latitude ?? 0.0)&longitude=\(CLLocationManager().location?.coordinate.longitude ?? 0.0)&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=Europe%2FParis") else {
+        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(CLLocationManager().location?.coordinate.latitude ?? 0.0)&longitude=\(CLLocationManager().location?.coordinate.longitude ?? 0.0)&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=Europe%2FParis") else {
             print("URL invalide.")
             return
         }
