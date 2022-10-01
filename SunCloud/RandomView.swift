@@ -11,8 +11,6 @@ import SwiftUI
 import CoreLocation
 
 struct RandomView: View {
-    @Environment(\.colorScheme) var colorScheme
-    
     @State var cityName = ""
     
     @State var latitude = Float.random(in: 0...50)
@@ -47,18 +45,11 @@ struct RandomView: View {
     @State var previsionsbd = [Int]()
     
     let weekdays = [1: "Dimanche", 2: "Lundi", 3: "Mardi", 4: "Mercredi", 5: "Jeudi", 6: "Vendredi", 7: "Samedi"]
-    
-    @State private var animateGradient = false
         
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing)
+            Color.blue.opacity(0.85)
                 .ignoresSafeArea()
-                .onAppear {
-                    withAnimation(.linear(duration: 45.0).repeatForever(autoreverses: true)) {
-                        animateGradient.toggle()
-                    }
-                }
             VStack {
                 List {
                     HStack {
@@ -146,7 +137,7 @@ struct RandomView: View {
                             Spacer()
                         }
                     }
-                    .listRowBackground(Color.blue.opacity(0.65))
+                    .listRowBackground(Color.blue.opacity(0.9))
                     Section("📆 Prévisions sur 7 jours") {
                         ForEach(previsionsbd, id: \.self) { i in
                             HStack {
@@ -196,7 +187,7 @@ struct RandomView: View {
                             }
                         }
                     }
-                    .listRowBackground(Color.blue.opacity(0.65))
+                    .listRowBackground(Color.blue.opacity(0.9))
                 }.scrollContentBackground(.hidden)
             }
             .foregroundColor(Color.white)
