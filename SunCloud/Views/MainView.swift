@@ -48,10 +48,10 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topTrailing : .bottomTrailing, endPoint: animateGradient ? .bottomLeading : .topLeading)
+                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .top : .center, endPoint: animateGradient ? .bottomTrailing : .bottomLeading)
                     .ignoresSafeArea()
                     .onAppear {
-                        withAnimation(.linear(duration: 50.0).repeatForever(autoreverses: true)) {
+                        withAnimation(.linear(duration: 25.0).repeatForever(autoreverses: true)) {
                             animateGradient.toggle()
                         }
                     }

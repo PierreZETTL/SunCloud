@@ -11,6 +11,8 @@ import SwiftUI
 import CoreLocation
 
 struct RandomView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @State var cityName = ""
     
     @State var latitude = Float.random(in: 0...50)
@@ -48,8 +50,10 @@ struct RandomView: View {
         
     var body: some View {
         ZStack {
-            Color.blue.opacity(0.75)
+            Color.blue.opacity(0)
                 .ignoresSafeArea()
+                .background(LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: .top, endPoint: .bottomTrailing)
+                    .ignoresSafeArea())
             VStack {
                 List {
                     HStack {
