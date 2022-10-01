@@ -9,6 +9,11 @@ import SwiftUI
 import CoreLocation
 
 struct MainView: View {
+    init() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+    }
+    
     @Environment(\.colorScheme) var colorScheme
     
     @State var cityName = ""
@@ -48,10 +53,10 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .top : .center, endPoint: animateGradient ? .bottomTrailing : .bottomLeading)
+                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topLeading : .topTrailing, endPoint: animateGradient ? .bottomTrailing : .bottomLeading)
                     .ignoresSafeArea()
                     .onAppear {
-                        withAnimation(.linear(duration: 25.0).repeatForever(autoreverses: true)) {
+                        withAnimation(.linear(duration: 20.0).repeatForever(autoreverses: true)) {
                             animateGradient.toggle()
                         }
                     }

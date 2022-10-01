@@ -52,7 +52,7 @@ struct RandomView: View {
         ZStack {
             Color.blue.opacity(0)
                 .ignoresSafeArea()
-                .background(LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: .top, endPoint: .bottomTrailing)
+                .background(LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: .topLeading, endPoint: .bottomTrailing)
                     .ignoresSafeArea())
             VStack {
                 List {
