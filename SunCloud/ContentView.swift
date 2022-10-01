@@ -205,8 +205,7 @@ struct ContentView: View {
                 .navigationBarTitle("Loc. actuelle")
                 .navigationBarHidden(true)
             }
-        }
-        
+        }.accentColor(.white)
         .onAppear {
             CLLocationManager().requestWhenInUseAuthorization()
             WeatherAPI().loadData { (weather) in
