@@ -43,12 +43,12 @@ struct ContentView: View {
     
     let weekdays = [1: "Dimanche", 2: "Lundi", 3: "Mardi", 4: "Mercredi", 5: "Jeudi", 6: "Vendredi", 7: "Samedi"]
     
-    @State private var animateGradient = false
+    @State private var animateGradient = true
         
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing)
+                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topTrailing : .bottomTrailing, endPoint: animateGradient ? .bottomLeading : .topLeading)
                     .ignoresSafeArea()
                     .onAppear {
                         withAnimation(.linear(duration: 75.0).repeatForever(autoreverses: true)) {
