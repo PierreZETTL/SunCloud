@@ -1,14 +1,16 @@
 //
-//  ContentView.swift
+//  RandomView.swift
 //  SunCloud
 //
-//  Created by Pierre ZETTL on 29/09/2022.
+//  Created by Pierre ZETTL on 01/10/2022.
 //
+
+import SwiftUI
 
 import SwiftUI
 import CoreLocation
 
-struct ContentView: View {
+struct RandomView: View {
     @State var cityName = "Erreur : Position introuvable"
     
     func reverseGeocode() {
@@ -187,7 +189,9 @@ struct ContentView: View {
                     }.scrollContentBackground(.hidden)
                     HStack {
                         Spacer()
-                        NavigationLink(destination: RandomView()) {
+                        Button {
+                            print("Test")
+                        } label: {
                             Image(systemName: "dice.fill")
                                 .padding(.bottom, 5.0)
                         }
@@ -220,8 +224,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RandomView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RandomView()
     }
 }

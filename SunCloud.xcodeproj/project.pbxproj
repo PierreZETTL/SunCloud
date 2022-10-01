@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F45801128E822C400EC35C3 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F45801028E822C400EC35C3 /* RandomView.swift */; };
 		8F9AA9C328E6C19A00D255FE /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */; };
 		8FEA025528E631F600E89917 /* SunCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025428E631F600E89917 /* SunCloudApp.swift */; };
 		8FEA025728E631F600E89917 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025628E631F600E89917 /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F45801028E822C400EC35C3 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		8FEA025128E631F600E89917 /* SunCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEA025428E631F600E89917 /* SunCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCloudApp.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				8FEA025428E631F600E89917 /* SunCloudApp.swift */,
 				8FEA025628E631F600E89917 /* ContentView.swift */,
+				8F45801028E822C400EC35C3 /* RandomView.swift */,
 				8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */,
 				8FEA025828E631F700E89917 /* Assets.xcassets */,
 				8FEA025A28E631F700E89917 /* Preview Content */,
@@ -263,6 +266,7 @@
 				8F9AA9C328E6C19A00D255FE /* WeatherAPI.swift in Sources */,
 				8FEA025728E631F600E89917 /* ContentView.swift in Sources */,
 				8FEA025528E631F600E89917 /* SunCloudApp.swift in Sources */,
+				8F45801128E822C400EC35C3 /* RandomView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
