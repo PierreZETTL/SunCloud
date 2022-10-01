@@ -48,7 +48,7 @@ struct RandomView: View {
         
     var body: some View {
         ZStack {
-            Color.blue.opacity(0.85)
+            Color.blue.opacity(0.75)
                 .ignoresSafeArea()
             VStack {
                 List {
