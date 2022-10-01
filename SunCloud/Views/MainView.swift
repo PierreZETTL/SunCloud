@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreLocation
 
-struct ContentView: View {
+struct MainView: View {
     @Environment(\.colorScheme) var colorScheme
     
     @State var cityName = ""
@@ -51,7 +51,7 @@ struct ContentView: View {
                 LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topTrailing : .bottomTrailing, endPoint: animateGradient ? .bottomLeading : .topLeading)
                     .ignoresSafeArea()
                     .onAppear {
-                        withAnimation(.linear(duration: 75.0).repeatForever(autoreverses: true)) {
+                        withAnimation(.linear(duration: 50.0).repeatForever(autoreverses: true)) {
                             animateGradient.toggle()
                         }
                     }
@@ -228,8 +228,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

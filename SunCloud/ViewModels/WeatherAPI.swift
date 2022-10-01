@@ -8,35 +8,6 @@
 import Foundation
 import CoreLocation
 
-struct Weather: Codable {
-    let latitude: Float
-    let longitude: Float
-    let hourly: HourlyData
-    let daily: DailyData
-    let current_weather: CurrentData
-}
-
-struct HourlyData: Codable {
-    let time: [String]
-    let temperature_2m: [Float]
-    let rain: [Float]
-    let cloudcover: [Float]
-    let snowfall: [Float]
-}
-
-struct DailyData: Codable {
-    let time: [String]
-    let temperature_2m_max: [Float]
-    let temperature_2m_min: [Float]
-    let rain_sum: [Float]
-    let snowfall_sum: [Float]
-}
-
-struct CurrentData: Codable {
-    let time: String
-    let temperature: Float
-}
-
 class WeatherAPI : ObservableObject{
     @Published var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15], rain: [0.0], cloudcover: [0.0], snowfall: [0.0]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5], rain_sum: [0.0], snowfall_sum: [0.0]), current_weather: CurrentData(time: "test", temperature: 0.0))
     
