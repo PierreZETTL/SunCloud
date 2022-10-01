@@ -11,10 +11,13 @@ import SwiftUI
 import CoreLocation
 
 struct RandomView: View {
-    @State var cityName = "Erreur : Position introuvable"
+    @State var cityName = ""
+    
+    @State var latitude = Float.random(in: 0...50)
+    @State var longitude = Float.random(in: 0...50)
     
     func reverseGeocode() {
-        let location = CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0)
+        let location = CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
         
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             guard let placemark = placemarks?.first else { return }
@@ -52,7 +55,7 @@ struct RandomView: View {
                     List {
                         HStack {
                             Spacer()
-                            Text("\(cityName)")
+                            Text("\(cityName != "" ? cityName : "Emplacement inconnu")")
                                 .font(.system(size: 30))
                                 .frame(height: 35)
                             Spacer()
@@ -187,34 +190,18 @@ struct RandomView: View {
                         }
                         .listRowBackground(Color.blue.opacity(0.9))
                     }.scrollContentBackground(.hidden)
-                    HStack {
-                        Spacer()
-                        Button {
-                            print("Test")
-                        } label: {
-                            Image(systemName: "dice.fill")
-                                .padding(.bottom, 5.0)
-                        }
-                        Spacer()
-                        Button {
-                            print("Test")
-                        } label: {
-                            Image(systemName: "magnifyingglass")
-                                .padding(.bottom, 5.0)
-                        }
-                        Spacer()
-                    }
                 }
                 .foregroundColor(Color.white)
-                .navigationBarTitle("Loc. actuelle")
+                .navigationBarTitle("Loc. aléatoire")
                 .navigationBarHidden(true)
             }
         }
         
         .onAppear {
-            CLLocationManager().requestWhenInUseAuthorization()
-            WeatherAPI().loadData { (weather) in
+            WeatherRandomAPI().loadData { (weather) in
                 self.weather = weather
+                self.latitude = weather.latitude
+                self.longitude = weather.longitude
                 self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
                 self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
                 

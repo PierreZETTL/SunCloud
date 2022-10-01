@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @State var cityName = "Erreur : Position introuvable"
+    @State var cityName = ""
     
     func reverseGeocode() {
         let location = CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0)
@@ -50,7 +50,7 @@ struct ContentView: View {
                     List {
                         HStack {
                             Spacer()
-                            Text("\(cityName)")
+                            Text("\(cityName != "" ? cityName : "Emplacement inconnu")")
                                 .font(.system(size: 30))
                                 .frame(height: 35)
                             Spacer()
