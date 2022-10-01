@@ -9,6 +9,8 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @State var cityName = ""
     
     func reverseGeocode() {
@@ -40,12 +42,19 @@ struct ContentView: View {
     @State var previsionsbd = [Int]()
     
     let weekdays = [1: "Dimanche", 2: "Lundi", 3: "Mardi", 4: "Mercredi", 5: "Jeudi", 6: "Vendredi", 7: "Samedi"]
+    
+    @State private var animateGradient = false
         
     var body: some View {
         NavigationView {
             ZStack {
-                Color.blue.opacity(0.85)
+                LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing)
                     .ignoresSafeArea()
+                    .onAppear {
+                        withAnimation(.linear(duration: 45.0).repeatForever(autoreverses: true)) {
+                            animateGradient.toggle()
+                        }
+                    }
                 VStack {
                     List {
                         HStack {
@@ -133,7 +142,7 @@ struct ContentView: View {
                                 Spacer()
                             }
                         }
-                        .listRowBackground(Color.blue.opacity(0.9))
+                        .listRowBackground(Color.blue.opacity(0.65))
                         Section("📆 Prévisions sur 7 jours") {
                             ForEach(previsionsbd, id: \.self) { i in
                                 HStack {
@@ -183,7 +192,7 @@ struct ContentView: View {
                                 }
                             }
                         }
-                        .listRowBackground(Color.blue.opacity(0.9))
+                        .listRowBackground(Color.blue.opacity(0.65))
                     }.scrollContentBackground(.hidden)
                     HStack {
                         Spacer()
