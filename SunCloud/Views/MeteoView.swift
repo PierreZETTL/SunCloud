@@ -258,7 +258,8 @@ struct MeteoView: View {
                     HStack {
                         VStack {
                             Spacer()
-                            Text("Vitesse max du vent")
+                            Text("Vitesse max")
+                            Text("du vent")
                             Spacer()
                             Image(systemName: "wind")
                                 .font(.system(size: 60))
@@ -275,7 +276,8 @@ struct MeteoView: View {
                         Spacer()
                         VStack {
                             Spacer()
-                            Text("Direct. dom. du vent")
+                            Text("Direct. dominante")
+                            Text("du vent")
                             Spacer()
                             Image(systemName: "arrowtriangle.forward.fill")
                                 .font(.system(size: 60))
