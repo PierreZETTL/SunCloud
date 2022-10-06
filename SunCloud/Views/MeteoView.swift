@@ -99,59 +99,52 @@ struct MeteoView: View {
                                 VStack(alignment: .center) {
                                     if i == currentHour {
                                         Text("Act.")
-                                            .padding(.horizontal, 9.0)
-                                            .fontWeight(.semibold)
+                                            .frame(width: 50, height: 25, alignment: .center)
                                     } else {
                                         if i > 23 {
                                             Text("\(i-24) h")
-                                                .padding(.horizontal, 9.0)
+                                                .frame(width: 50, height: 25, alignment: .center)
                                         } else {
                                             Text("\(i) h")
-                                                .padding(.horizontal, 9.0)
+                                                .frame(width: 50, height: 25, alignment: .center)
                                         }
                                     }
                                     if weather.hourly.snowfall[i] > 0 {
                                         Image(systemName: "cloud.snow.fill")
-                                            .padding(.horizontal, 9.0)
-                                            .padding(.vertical, 1.0)
+                                            .frame(width: 50, height: 25, alignment: .center)
                                             .foregroundColor(Color.white)
                                     } else if weather.hourly.rain[i] > 0 {
                                         Image(systemName: "cloud.rain.fill")
-                                            .padding(.horizontal, 9.0)
-                                            .padding(.vertical, 1.0)
+                                            .frame(width: 50, height: 25, alignment: .center)
                                             .foregroundColor(Color.white)
                                     } else if weather.hourly.cloudcover[i] > 0 {
                                         if i < 8 || i > 20 {
                                             Image(systemName: "cloud.moon.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
+                                                .frame(width: 50, height: 25, alignment: .center)
                                                 .foregroundColor(Color.white)
                                         } else {
                                             Image(systemName: "cloud.sun.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
+                                                .frame(width: 50, height: 25, alignment: .center)
                                                 .foregroundColor(Color.yellow)
                                         }
                                     } else {
                                         if i < 8 || i > 20 {
                                             Image(systemName: "moon.stars.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
+                                                .frame(width: 50, height: 25, alignment: .center)
                                                 .foregroundColor(Color.white)
                                         } else {
                                             Image(systemName: "sun.max.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
+                                                .frame(width: 50, height: 25, alignment: .center)
                                                 .foregroundColor(Color.yellow)
                                         }
                                     }
                                     if i == currentHour {
                                         Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                            .padding(.horizontal, 9.0)
+                                            .frame(width: 50, height: 25, alignment: .center)
                                             .fontWeight(.semibold)
                                     } else {
                                         Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                            .padding(.horizontal, 9.0)
+                                            .frame(width: 50, height: 25, alignment: .center)
                                     }
                                 }
                             }
@@ -160,7 +153,7 @@ struct MeteoView: View {
                     }
                 }
                 .listRowBackground(Color.blue.opacity(0.65))
-                Section("📆 Prévisions sur 6 jours") {
+                Section("📆 Prévisions sur 7 jours") {
                     ForEach(previsionsbd, id: \.self) { i in
                         HStack {
                             if weather.daily.snowfall_sum[i] > 0 {
@@ -173,20 +166,24 @@ struct MeteoView: View {
                                     .frame(width: 25)
                             } else {
                                 Image(systemName: "sun.max.fill")
-                                    .frame(width: 25)
                                     .foregroundColor(Color.yellow)
+                                    .frame(width: 25)
                             }
                             if i == 0 {
                                 Text("Aujourd'hui")
+                                    .frame(width: 115, height: 25, alignment: .leading)
                                     .fontWeight(.semibold)
                             } else if currentDay+i > 7 {
                                 Text(weekdays[currentDay+(i-7)] ?? "Erreur")
+                                    .frame(width: 115, height: 25, alignment: .leading)
                             } else {
                                 Text(weekdays[currentDay+i] ?? "Erreur")
+                                    .frame(width: 115, height: 25, alignment: .leading)
                             }
                             Spacer()
                             if i == 0 {
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
+                                    .frame(width: 35, height: 25, alignment: .trailing)
                                     .fontWeight(.semibold)
                                 Rectangle()
                                     .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
@@ -195,9 +192,11 @@ struct MeteoView: View {
                                     .frame(width: 60, height: 2)
                                     .cornerRadius(25)
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                    .frame(width: 35, height: 25, alignment: .leading)
                                     .fontWeight(.semibold)
                             } else {
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
+                                    .frame(width: 35, height: 25, alignment: .trailing)
                                 Rectangle()
                                     .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
                                            startPoint: .leading,
@@ -205,6 +204,7 @@ struct MeteoView: View {
                                     .frame(width: 60, height: 2)
                                     .cornerRadius(25)
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                    .frame(width: 35, height:25, alignment: .leading)
                             }
                         }
                     }
@@ -223,8 +223,6 @@ struct MeteoView: View {
                             WeatherRandomAPI().loadData { (weather) in
                                 self.weather = weather
                                 self.reverseGeocode()
-                                self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
-                                self.previsionsbd = [0, 1, 2, 3, 4, 5]
                             }
                         } label: {
                             Image(systemName: "arrow.clockwise.circle.fill")
@@ -247,14 +245,14 @@ struct MeteoView: View {
                     self.weather = weather
                     self.reverseGeocode()
                     self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
-                    self.previsionsbd = [0, 1, 2, 3, 4, 5]
+                    self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
                 }
             } else {
                 WeatherRandomAPI().loadData { (weather) in
                     self.weather = weather
                     self.reverseGeocode()
-                    self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
-                    self.previsionsbd = [0, 1, 2, 3, 4, 5]
+                    self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
+                    self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
                 }
             }
         }
