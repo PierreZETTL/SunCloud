@@ -62,157 +62,160 @@ struct MeteoView: View {
                         animateGradient.toggle()
                     }
                 }
-            VStack {
-                List {
-                    Section(header: Spacer(minLength: 0)) {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Text("\(countryName != "" ? countryName : "Pays inconnu")")
-                                    .font(.system(size: 30))
-                                    .frame(height: 35)
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(cityName != "" ? cityName : "Ville inconnue")")
-                                    .font(.system(size: 30))
-                                    .frame(height: 35)
-                                Spacer()
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
-                                    .font(.system(size: 100))
-                                    .fontWeight(.thin)
-                                    .frame(height: 70)
-                                Spacer()
-                            }
+            List {
+                Section(header: Spacer(minLength: 0)) {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            Text("\(countryName != "" ? countryName : "Pays inconnu")")
+                                .font(.system(size: 20))
+                                .frame(height: 25)
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(cityName != "" ? cityName : "Ville inconnue")")
+                                .font(.system(size: 30))
+                                .frame(height: 35)
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
+                                .font(.system(size: 100))
+                                .fontWeight(.thin)
+                                .frame(height: 70)
+                            Spacer()
                         }
                     }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.blue.opacity(0))
-                    Section("🕦 Prévisions sur 5 heures") {
-                        HStack(alignment: .center) {
-                            Spacer()
-                            ForEach(previsionsbh, id: \.self) { i in
-                                VStack(alignment: .center) {
-                                    if i == currentHour {
-                                        Text("Act.")
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.blue.opacity(0))
+                Section("🕦 Prévisions sur 5 heures") {
+                    HStack(alignment: .center) {
+                        Spacer()
+                        ForEach(previsionsbh, id: \.self) { i in
+                            VStack(alignment: .center) {
+                                if i == currentHour {
+                                    Text("Act.")
+                                        .padding(.horizontal, 9.0)
+                                        .fontWeight(.semibold)
+                                } else {
+                                    if i > 24 {
+                                        Text("\(i-24) h")
                                             .padding(.horizontal, 9.0)
-                                            .fontWeight(.semibold)
                                     } else {
-                                        if i > 24 {
-                                            Text("\(i-24) h")
-                                                .padding(.horizontal, 9.0)
-                                        } else {
-                                            Text("\(i) h")
-                                                .padding(.horizontal, 9.0)
-                                        }
-                                    }
-                                    if weather.hourly.snowfall[i] > 0 {
-                                        Image(systemName: "cloud.snow.fill")
-                                            .padding(.horizontal, 9.0)
-                                            .padding(.vertical, 1.0)
-                                            .foregroundColor(Color.white)
-                                    } else if weather.hourly.rain[i] > 0 {
-                                        Image(systemName: "cloud.rain.fill")
-                                            .padding(.horizontal, 9.0)
-                                            .padding(.vertical, 1.0)
-                                            .foregroundColor(Color.white)
-                                    } else if weather.hourly.cloudcover[i] > 0 {
-                                        if i < 8 || i > 20 {
-                                            Image(systemName: "cloud.moon.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
-                                                .foregroundColor(Color.white)
-                                        } else {
-                                            Image(systemName: "cloud.sun.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
-                                                .foregroundColor(Color.yellow)
-                                        }
-                                    } else {
-                                        if i < 8 || i > 20 {
-                                            Image(systemName: "moon.stars.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
-                                                .foregroundColor(Color.white)
-                                        } else {
-                                            Image(systemName: "sun.max.fill")
-                                                .padding(.horizontal, 9.0)
-                                                .padding(.vertical, 1.0)
-                                                .foregroundColor(Color.yellow)
-                                        }
-                                    }
-                                    if i == currentHour {
-                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                            .padding(.horizontal, 9.0)
-                                            .fontWeight(.semibold)
-                                    } else {
-                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                        Text("\(i) h")
                                             .padding(.horizontal, 9.0)
                                     }
                                 }
-                            }
-                            Spacer()
-                        }
-                    }
-                    .listRowBackground(Color.blue.opacity(0.65))
-                    Section("📆 Prévisions sur 6 jours") {
-                        ForEach(previsionsbd, id: \.self) { i in
-                            HStack {
-                                if weather.daily.snowfall_sum[i] > 0 {
+                                if weather.hourly.snowfall[i] > 0 {
                                     Image(systemName: "cloud.snow.fill")
+                                        .padding(.horizontal, 9.0)
+                                        .padding(.vertical, 1.0)
                                         .foregroundColor(Color.white)
-                                        .frame(width: 25)
-                                } else if weather.daily.rain_sum[i] > 0 {
+                                } else if weather.hourly.rain[i] > 0 {
                                     Image(systemName: "cloud.rain.fill")
+                                        .padding(.horizontal, 9.0)
+                                        .padding(.vertical, 1.0)
                                         .foregroundColor(Color.white)
-                                        .frame(width: 25)
+                                } else if weather.hourly.cloudcover[i] > 0 {
+                                    if i < 8 || i > 20 {
+                                        Image(systemName: "cloud.moon.fill")
+                                            .padding(.horizontal, 9.0)
+                                            .padding(.vertical, 1.0)
+                                            .foregroundColor(Color.white)
+                                    } else {
+                                        Image(systemName: "cloud.sun.fill")
+                                            .padding(.horizontal, 9.0)
+                                            .padding(.vertical, 1.0)
+                                            .foregroundColor(Color.yellow)
+                                    }
                                 } else {
-                                    Image(systemName: "sun.max.fill")
-                                        .frame(width: 25)
-                                        .foregroundColor(Color.yellow)
+                                    if i < 8 || i > 20 {
+                                        Image(systemName: "moon.stars.fill")
+                                            .padding(.horizontal, 9.0)
+                                            .padding(.vertical, 1.0)
+                                            .foregroundColor(Color.white)
+                                    } else {
+                                        Image(systemName: "sun.max.fill")
+                                            .padding(.horizontal, 9.0)
+                                            .padding(.vertical, 1.0)
+                                            .foregroundColor(Color.yellow)
+                                    }
                                 }
-                                if i == 0 {
-                                    Text("Aujourd'hui")
-                                        .fontWeight(.semibold)
-                                } else if currentDay+i > 7 {
-                                    Text(weekdays[currentDay+(i-7)] ?? "Erreur")
-                                } else {
-                                    Text(weekdays[currentDay+i] ?? "Erreur")
-                                }
-                                Spacer()
-                                if i == 0 {
-                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
-                                        .fontWeight(.semibold)
-                                    Rectangle()
-                                        .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
-                                               startPoint: .leading,
-                                               endPoint: .trailing))
-                                        .frame(width: 60, height: 2)
-                                        .cornerRadius(25)
-                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                if i == currentHour {
+                                    Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                        .padding(.horizontal, 9.0)
                                         .fontWeight(.semibold)
                                 } else {
-                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
-                                    Rectangle()
-                                        .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
-                                               startPoint: .leading,
-                                               endPoint: .trailing))
-                                        .frame(width: 60, height: 2)
-                                        .cornerRadius(25)
-                                    Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                    Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                        .padding(.horizontal, 9.0)
                                 }
                             }
                         }
+                        Spacer()
                     }
-                    .listRowBackground(Color.blue.opacity(0.65))
-                }.scrollContentBackground(.hidden)
-                if type == "random" {
+                }
+                .listRowBackground(Color.blue.opacity(0.65))
+                Section("📆 Prévisions sur 6 jours") {
+                    ForEach(previsionsbd, id: \.self) { i in
+                        HStack {
+                            if weather.daily.snowfall_sum[i] > 0 {
+                                Image(systemName: "cloud.snow.fill")
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 25)
+                            } else if weather.daily.rain_sum[i] > 0 {
+                                Image(systemName: "cloud.rain.fill")
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 25)
+                            } else {
+                                Image(systemName: "sun.max.fill")
+                                    .frame(width: 25)
+                                    .foregroundColor(Color.yellow)
+                            }
+                            if i == 0 {
+                                Text("Aujourd'hui")
+                                    .fontWeight(.semibold)
+                            } else if currentDay+i > 7 {
+                                Text(weekdays[currentDay+(i-7)] ?? "Erreur")
+                            } else {
+                                Text(weekdays[currentDay+i] ?? "Erreur")
+                            }
+                            Spacer()
+                            if i == 0 {
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
+                                    .fontWeight(.semibold)
+                                Rectangle()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
+                                           startPoint: .leading,
+                                           endPoint: .trailing))
+                                    .frame(width: 60, height: 2)
+                                    .cornerRadius(25)
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                                    .fontWeight(.semibold)
+                            } else {
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
+                                Rectangle()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
+                                           startPoint: .leading,
+                                           endPoint: .trailing))
+                                    .frame(width: 60, height: 2)
+                                    .cornerRadius(25)
+                                Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
+                            }
+                        }
+                    }
+                }
+                .listRowBackground(Color.blue.opacity(0.65))
+            }
+            .scrollContentBackground(.hidden)
+            .foregroundColor(Color.white)
+            
+            if type == "random" {
+                VStack {
                     Button("Nouveau lieu") {
-                        GlobalVars.randLatitude = Float.random(in: -89...89)
+                        GlobalVars.randLatitude = Float.random(in: -84...84)
                         GlobalVars.randLongitude = Float.random(in: -179...179)
                         WeatherRandomAPI().loadData { (weather) in
                             self.weather = weather
@@ -221,13 +224,13 @@ struct MeteoView: View {
                             self.previsionsbd = [0, 1, 2, 3, 4, 5]
                         }
                     }
-                    .frame(width: 175, height: 45, alignment: .center)
+                    .frame(width: 150, height: 25, alignment: .center)
                     .background(Color.blue.opacity(0.65))
                     .cornerRadius(10)
-                    .padding(.bottom, 5)
+                    .foregroundColor(Color.white)
+                    Spacer()
                 }
             }
-            .foregroundColor(Color.white)
         }
         .onAppear {
             if self.type != "random" {

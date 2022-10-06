@@ -20,7 +20,7 @@ struct IdentifiablePlace: Identifiable {
 }
 
 struct MapView: View {
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 6, longitudeDelta: 6))
     
     @State var place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
     
@@ -34,15 +34,19 @@ struct MapView: View {
                 Spacer()
                 HStack {
                     Button("Position actuelle") {
-                        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+                        withAnimation {
+                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 6, longitudeDelta: 6))
+                        }
                     }
                     .frame(width: 175, height: 45, alignment: .center)
                     .background(Color(UIColor.tertiarySystemBackground))
                     .cornerRadius(10)
                     .padding(.bottom, 30)
                     Button("Position aléatoire") {
-                        region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude)), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-                        self.place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
+                        withAnimation {
+                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude)), span: MKCoordinateSpan(latitudeDelta: 6, longitudeDelta: 6))
+                            self.place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
+                        }
                     }
                     .frame(width: 175, height: 45, alignment: .center)
                     .background(Color(UIColor.tertiarySystemBackground))
