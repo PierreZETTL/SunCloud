@@ -100,6 +100,7 @@ struct MeteoView: View {
                                     if i == currentHour {
                                         Text("Act.")
                                             .frame(width: 50, height: 25, alignment: .center)
+                                            .fontWeight(.semibold)
                                     } else {
                                         if i > 23 {
                                             Text("\(i-24) h")
