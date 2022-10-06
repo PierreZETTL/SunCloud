@@ -20,7 +20,7 @@ struct IdentifiablePlace: Identifiable {
 }
 
 struct MapView: View {
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 6, longitudeDelta: 6))
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     
     @State var place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
     
@@ -35,7 +35,7 @@ struct MapView: View {
                 HStack {
                     Button("Position actuelle") {
                         withAnimation {
-                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 6, longitudeDelta: 6))
+                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
                         }
                     }
                     .frame(width: 175, height: 45, alignment: .center)
@@ -44,7 +44,7 @@ struct MapView: View {
                     .padding(.bottom, 30)
                     Button("Position aléatoire") {
                         withAnimation {
-                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude)), span: MKCoordinateSpan(latitudeDelta: 6, longitudeDelta: 6))
+                            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude)), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
                             self.place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
                         }
                     }

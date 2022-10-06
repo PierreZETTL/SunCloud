@@ -11,6 +11,15 @@ class GlobalVars {
     static var randLatitude: Float = 0.0
     static var randLongitude: Float = 0.0
     static var defaultWeather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15], rain: [0.0], cloudcover: [0.0], snowfall: [0.0]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5], rain_sum: [0.0], snowfall_sum: [0.0]), current_weather: CurrentData(time: "test", temperature: 0.0))
+    
+    static func setRandoms() {
+        GlobalVars.randLatitude = Float.random(in: -84...84)
+        GlobalVars.randLongitude = Float.random(in: -179...179)
+        
+        // Affichage des coordonnées aléatoires
+        print("Latitude aléatoire : \(GlobalVars.randLatitude)")
+        print("Longitude aléatoire : \(GlobalVars.randLongitude)")
+    }
 }
 
 struct MainView: View {
@@ -38,8 +47,7 @@ struct MainView: View {
                 }
         }.onAppear {
             if GlobalVars.randLatitude == 0.0 && GlobalVars.randLongitude == 0.0 {
-                GlobalVars.randLatitude = Float.random(in: -84...84)
-                GlobalVars.randLongitude = Float.random(in: -179...179)
+                GlobalVars.setRandoms()
             }
         }
     }

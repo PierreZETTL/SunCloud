@@ -217,8 +217,7 @@ struct MeteoView: View {
                     HStack {
                         Spacer()
                         Button {
-                            GlobalVars.randLatitude = Float.random(in: -84...84)
-                            GlobalVars.randLongitude = Float.random(in: -179...179)
+                            GlobalVars.setRandoms()
                             WeatherRandomAPI().loadData { (weather) in
                                 self.weather = weather
                                 self.reverseGeocode()
