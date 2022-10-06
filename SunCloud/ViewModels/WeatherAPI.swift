@@ -18,7 +18,6 @@ class WeatherAPI : ObservableObject {
         }
         URLSession.shared.dataTask(with: url) { data, response, error in
             let weather = try! JSONDecoder().decode(Weather.self, from: data!)
-            print(weather)
             DispatchQueue.main.async {
                 completion(weather)
             }
