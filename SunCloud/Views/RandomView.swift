@@ -15,8 +15,8 @@ struct RandomView: View {
     
     @State var cityName = ""
     
-    @State var latitude = Float.random(in: 0...50)
-    @State var longitude = Float.random(in: 0...50)
+    @State var latitude = Float.random(in: -90...90)
+    @State var longitude = Float.random(in: -180...180)
     
     func reverseGeocode() {
         let location = CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
@@ -141,7 +141,7 @@ struct RandomView: View {
                             Spacer()
                         }
                     }
-                    .listRowBackground(Color.blue.opacity(0.9))
+                    .listRowBackground(Color.blue.opacity(0.65))
                     Section("📆 Prévisions sur 7 jours") {
                         ForEach(previsionsbd, id: \.self) { i in
                             HStack {
@@ -191,7 +191,7 @@ struct RandomView: View {
                             }
                         }
                     }
-                    .listRowBackground(Color.blue.opacity(0.9))
+                    .listRowBackground(Color.blue.opacity(0.65))
                 }.scrollContentBackground(.hidden)
             }
             .foregroundColor(Color.white)

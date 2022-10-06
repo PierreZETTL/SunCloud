@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F45801128E822C400EC35C3 /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F45801028E822C400EC35C3 /* RandomView.swift */; };
 		8F45801328E8245900EC35C3 /* WeatherRandomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F45801228E8245900EC35C3 /* WeatherRandomAPI.swift */; };
+		8F5069AB28EEBC0D0006EB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5069AA28EEBC0D0006EB8B /* LaunchScreen.storyboard */; };
 		8F9AA9C328E6C19A00D255FE /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */; };
 		8FB8070528E83F9700BC5B1E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8070428E83F9700BC5B1E /* WeatherModel.swift */; };
 		8FEA025528E631F600E89917 /* SunCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025428E631F600E89917 /* SunCloudApp.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		8F45801028E822C400EC35C3 /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
 		8F45801228E8245900EC35C3 /* WeatherRandomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRandomAPI.swift; sourceTree = "<group>"; };
+		8F5069AA28EEBC0D0006EB8B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
 		8FB8070428E83F9700BC5B1E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		8FEA025128E631F600E89917 /* SunCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				8FEA025428E631F600E89917 /* SunCloudApp.swift */,
 				8FEA025828E631F700E89917 /* Assets.xcassets */,
 				8FEA025A28E631F700E89917 /* Preview Content */,
+				8F5069AA28EEBC0D0006EB8B /* LaunchScreen.storyboard */,
 			);
 			path = SunCloud;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5069AB28EEBC0D0006EB8B /* LaunchScreen.storyboard in Resources */,
 				8FEA025C28E631F700E89917 /* Preview Assets.xcassets in Resources */,
 				8FEA025928E631F700E89917 /* Assets.xcassets in Resources */,
 			);
@@ -465,6 +469,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -499,6 +504,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

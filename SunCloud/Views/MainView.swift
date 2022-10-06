@@ -206,13 +206,6 @@ struct MainView: View {
                                 .padding(.bottom, 5.0)
                         }
                         Spacer()
-                        Button {
-                            print("Test")
-                        } label: {
-                            Image(systemName: "magnifyingglass")
-                                .padding(.bottom, 5.0)
-                        }
-                        Spacer()
                     }
                 }
                 .foregroundColor(Color.white)
