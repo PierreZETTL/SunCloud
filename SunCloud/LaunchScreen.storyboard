@@ -21,17 +21,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SunCloud" translatesAutoresizingMaskIntoConstraints="NO" id="wmd-e3-MRz">
-                                <rect key="frame" x="-27" y="300" width="445" height="244"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SunCloud" translatesAutoresizingMaskIntoConstraints="NO" id="wmd-e3-MRz">
+                                <rect key="frame" x="-27.666666666666657" y="300" width="445.33333333333326" height="244"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="445" id="9Hc-fe-CxI"/>
+                                    <constraint firstAttribute="height" constant="244" id="yyV-Aw-6dP"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="0.83529412749999998" green="0.94509804249999996" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="wmd-e3-MRz" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="MeT-ai-yQv"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="wmd-e3-MRz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="euf-UG-EgR"/>
                         </constraints>
                     </view>
                 </viewController>

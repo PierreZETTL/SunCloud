@@ -234,7 +234,7 @@ struct MeteoView: View {
                                 .font(.system(size: 20, weight: .bold))
                             Spacer()
                         }
-                        .frame(width: 175, height: 175, alignment: .center)
+                        .frame(width: 165, height: 165, alignment: .center)
                         .background(Color.blue.opacity(0.65))
                         .cornerRadius(10)
                         Spacer()
@@ -251,7 +251,7 @@ struct MeteoView: View {
                                 .font(.system(size: 20, weight: .bold))
                             Spacer()
                         }
-                        .frame(width: 175, height: 175, alignment: .center)
+                        .frame(width: 165, height: 165, alignment: .center)
                         .background(Color.blue.opacity(0.65))
                         .cornerRadius(10)
                     }
@@ -269,7 +269,7 @@ struct MeteoView: View {
                                 .font(.system(size: 20, weight: .bold))
                             Spacer()
                         }
-                        .frame(width: 175, height: 175, alignment: .center)
+                        .frame(width: 165, height: 165, alignment: .center)
                         .background(Color.blue.opacity(0.65))
                         .cornerRadius(10)
                         Spacer()
@@ -286,7 +286,7 @@ struct MeteoView: View {
                                 .font(.system(size: 20, weight: .bold))
                             Spacer()
                         }
-                        .frame(width: 175, height: 175, alignment: .center)
+                        .frame(width: 165, height: 165, alignment: .center)
                         .background(Color.blue.opacity(0.65))
                         .cornerRadius(10)
                     }
