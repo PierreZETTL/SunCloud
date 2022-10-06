@@ -214,20 +214,27 @@ struct MeteoView: View {
             
             if type == "random" {
                 VStack {
-                    Button("Nouveau lieu") {
-                        GlobalVars.randLatitude = Float.random(in: -84...84)
-                        GlobalVars.randLongitude = Float.random(in: -179...179)
-                        WeatherRandomAPI().loadData { (weather) in
-                            self.weather = weather
-                            self.reverseGeocode()
-                            self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
-                            self.previsionsbd = [0, 1, 2, 3, 4, 5]
+                    HStack {
+                        Spacer()
+                        Button {
+                            GlobalVars.randLatitude = Float.random(in: -84...84)
+                            GlobalVars.randLongitude = Float.random(in: -179...179)
+                            WeatherRandomAPI().loadData { (weather) in
+                                self.weather = weather
+                                self.reverseGeocode()
+                                self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
+                                self.previsionsbd = [0, 1, 2, 3, 4, 5]
+                            }
+                        } label: {
+                            Image(systemName: "arrow.clockwise.circle.fill")
+                                .imageScale(.large)
+                                .frame(width: 35, height: 35, alignment: .center)
+                                .background(Color.blue.opacity(0.65))
+                                .cornerRadius(15)
+                                .foregroundColor(Color.white)
+                                .padding(.horizontal, 15)
                         }
                     }
-                    .frame(width: 150, height: 25, alignment: .center)
-                    .background(Color.blue.opacity(0.65))
-                    .cornerRadius(10)
-                    .foregroundColor(Color.white)
                     Spacer()
                 }
             }
