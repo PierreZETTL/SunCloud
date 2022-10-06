@@ -37,7 +37,7 @@ struct MapView: View {
                         region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
                     }
                     .frame(width: 175, height: 45, alignment: .center)
-                    .background(Color(UIColor.systemBackground).opacity(0.95))
+                    .background(Color(UIColor.tertiarySystemBackground))
                     .cornerRadius(10)
                     .padding(.bottom, 25)
                     Button("Position aléatoire") {
@@ -45,7 +45,7 @@ struct MapView: View {
                         self.place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
                     }
                     .frame(width: 175, height: 45, alignment: .center)
-                    .background(Color(UIColor.systemBackground).opacity(0.95))
+                    .background(Color(UIColor.tertiarySystemBackground))
                     .cornerRadius(10)
                     .padding(.bottom, 25)
                 }
