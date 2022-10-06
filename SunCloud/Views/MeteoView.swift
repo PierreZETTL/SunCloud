@@ -15,6 +15,14 @@ struct MeteoView: View {
     // Variable type de vue
     @State var type: String
     
+    // Variables lever / coucher du soleil
+    @State var sunrise = ""
+    @State var sunset = ""
+    
+    // Variables données vent
+    @State var windSpeed: Float = 0.0
+    @State var windDirection: Float = 0.0
+    
     // Variables position
     @State var cityName = ""
     @State var countryName = ""
@@ -211,6 +219,80 @@ struct MeteoView: View {
                     }
                 }
                 .listRowBackground(Color.blue.opacity(0.65))
+                Section("📕 Informations supplémentaires") {
+                    HStack {
+                        VStack {
+                            Spacer()
+                            Text("Lever du soleil")
+                            Spacer()
+                            Image(systemName: "sun.max.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(Color.yellow)
+                            Spacer()
+                            Spacer()
+                            Text(self.sunrise)
+                                .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        .frame(width: 175, height: 175, alignment: .center)
+                        .background(Color.blue.opacity(0.65))
+                        .cornerRadius(10)
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            Text("Coucher du soleil")
+                            Spacer()
+                            Image(systemName: "moon.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(Color.white)
+                            Spacer()
+                            Spacer()
+                            Text(self.sunset)
+                                .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        .frame(width: 175, height: 175, alignment: .center)
+                        .background(Color.blue.opacity(0.65))
+                        .cornerRadius(10)
+                    }
+                    HStack {
+                        VStack {
+                            Spacer()
+                            Text("Vitesse max du vent")
+                            Spacer()
+                            Image(systemName: "wind")
+                                .font(.system(size: 60))
+                                .foregroundColor(Color.white)
+                            Spacer()
+                            Spacer()
+                            Text("\(String(format: "%.2f", self.windSpeed)) km/h")
+                                .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        .frame(width: 175, height: 175, alignment: .center)
+                        .background(Color.blue.opacity(0.65))
+                        .cornerRadius(10)
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            Text("Direct. dom. du vent")
+                            Spacer()
+                            Image(systemName: "arrowtriangle.forward.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(Color.orange)
+                            Spacer()
+                            Spacer()
+                            Text("\(String(format: "%.2f", self.windDirection))°")
+                                .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        .frame(width: 175, height: 175, alignment: .center)
+                        .background(Color.blue.opacity(0.65))
+                        .cornerRadius(10)
+                    }
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.blue.opacity(0))
             }
             .scrollContentBackground(.hidden)
             .foregroundColor(Color.white)
@@ -224,6 +306,12 @@ struct MeteoView: View {
                             WeatherRandomAPI().loadData { (weather) in
                                 self.weather = weather
                                 self.reverseGeocode()
+                                self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
+                                self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
+                                self.sunset = String(weather.daily.sunset[0].dropFirst(11))
+                                self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
+                                self.windSpeed = weather.daily.windspeed_10m_max[0]
+                                self.windDirection = weather.daily.winddirection_10m_dominant[0]
                             }
                         } label: {
                             Image(systemName: "arrow.clockwise.circle.fill")
@@ -247,6 +335,10 @@ struct MeteoView: View {
                     self.reverseGeocode()
                     self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
                     self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
+                    self.sunset = String(weather.daily.sunset[0].dropFirst(11))
+                    self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
+                    self.windSpeed = weather.daily.windspeed_10m_max[0]
+                    self.windDirection = weather.daily.winddirection_10m_dominant[0]
                 }
             } else {
                 WeatherRandomAPI().loadData { (weather) in
@@ -254,6 +346,10 @@ struct MeteoView: View {
                     self.reverseGeocode()
                     self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
                     self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
+                    self.sunset = String(weather.daily.sunset[0].dropFirst(11))
+                    self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
+                    self.windSpeed = weather.daily.windspeed_10m_max[0]
+                    self.windDirection = weather.daily.winddirection_10m_dominant[0]
                 }
             }
         }

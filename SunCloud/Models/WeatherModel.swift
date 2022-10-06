@@ -29,6 +29,10 @@ struct DailyData: Codable {
     let temperature_2m_min: [Float]
     let rain_sum: [Float]
     let snowfall_sum: [Float]
+    let sunrise: [String]
+    let sunset: [String]
+    let windspeed_10m_max: [Float]
+    let winddirection_10m_dominant: [Float]
 }
 
 struct CurrentData: Codable {

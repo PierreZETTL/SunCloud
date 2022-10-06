@@ -12,7 +12,7 @@ class WeatherRandomAPI : ObservableObject {
     @Published var weather: Weather = GlobalVars.defaultWeather
     
     func loadData(completion:@escaping (Weather) -> ()) {
-        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(CLLocationDegrees(GlobalVars.randLatitude))&longitude=\(CLLocationDegrees(GlobalVars.randLongitude))&hourly=temperature_2m,rain,cloudcover,snowfall&daily=temperature_2m_max,temperature_2m_min,rain_sum,sunrise,sunset,snowfall_sum&current_weather=true&timezone=Europe%2FParis") else {
+        guard let url = URL(string: "https://api.open-meteo.com/v1/forecast?latitude=\(CLLocationDegrees(GlobalVars.randLatitude))&longitude=\(CLLocationDegrees(GlobalVars.randLongitude))&hourly=temperature_2m,rain,cloudcover,snowfall&daily=temperature_2m_max,temperature_2m_min,rain_sum,sunrise,sunset,snowfall_sum,windspeed_10m_max,winddirection_10m_dominant&current_weather=true&timezone=Europe%2FParis") else {
             print("URL invalide.")
             return
         }
