@@ -64,22 +64,31 @@ struct MeteoView: View {
                 }
             VStack {
                 List {
-                    HStack {
-                        Spacer()
-                        Text("\(cityName != "" ? cityName : "Ville inconnue")")
-                            .font(.system(size: 30))
-                            .frame(height: 35)
-                        Spacer()
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.blue.opacity(0))
-                    HStack {
-                        Spacer()
-                        Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
-                            .font(.system(size: 100))
-                            .fontWeight(.thin)
-                            .frame(height: 70)
-                        Spacer()
+                    Section(header: Spacer(minLength: 0)) {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Text("\(countryName != "" ? countryName : "Pays inconnu")")
+                                    .font(.system(size: 30))
+                                    .frame(height: 35)
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(cityName != "" ? cityName : "Ville inconnue")")
+                                    .font(.system(size: 30))
+                                    .frame(height: 35)
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
+                                    .font(.system(size: 100))
+                                    .fontWeight(.thin)
+                                    .frame(height: 70)
+                                Spacer()
+                            }
+                        }
                     }
                     .listRowSeparator(.hidden)
                     .listRowBackground(Color.blue.opacity(0))
@@ -219,7 +228,7 @@ struct MeteoView: View {
                 }
             }
             .foregroundColor(Color.white)
-        }.accentColor(.white)
+        }
         .onAppear {
             if self.type != "random" {
                 CLLocationManager().requestWhenInUseAuthorization()
