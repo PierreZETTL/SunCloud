@@ -6,45 +6,20 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 import CoreLocation
 
 struct MeteoView: View {
-    // Variable type de vue
-    @State var type: String
-    
     // Variables d'environnement
     @Environment(\.colorScheme) var colorScheme
+    
+    // Variable type de vue
+    @State var type: String
     
     // Variables position
     @State var cityName = ""
     @State var countryName = ""
-    @State var latitude: Float = 0.0
-    @State var longitude: Float = 0.0
 
     // Récupération infos position
-    func reverseGeocode() {
-        if self.type != "random" {
-            let location = CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0)
-            CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-                guard let placemark = placemarks?.first else { return }
-                let reversedGeoLocation = ReversedGeoLocation(with: placemark)
-                print("Ville correspondant à la détection : \(reversedGeoLocation.city)")
-                self.cityName = reversedGeoLocation.city
-                self.countryName = reversedGeoLocation.country
-            }
-        } else {
-            let location = CLLocation(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
-            CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-                guard let placemark = placemarks?.first else { return }
-                let reversedGeoLocation = ReversedGeoLocation(with: placemark)
-                print("Ville correspondant à la détection : \(reversedGeoLocation.city)")
-                self.cityName = reversedGeoLocation.city
-                self.countryName = reversedGeoLocation.country
-            }
-        }
-    }
     struct ReversedGeoLocation {
         let city: String
         let country: String
@@ -53,9 +28,20 @@ struct MeteoView: View {
             self.country = placemark.country ?? ""
         }
     }
+    func reverseGeocode() {
+        let location = type != "random" ? CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0) : CLLocation(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude))
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            guard let placemark = placemarks?.first else { return }
+            let reversedGeoLocation = ReversedGeoLocation(with: placemark)
+            self.cityName = reversedGeoLocation.city
+            self.countryName = reversedGeoLocation.country
+            print("Ville : \(reversedGeoLocation.city)")
+            print("Pays : \(reversedGeoLocation.country)")
+        }
+    }
     
     // Variable données météo
-    @State var weather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15], rain: [0.0], cloudcover: [0.0], snowfall: [0.0]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5], rain_sum: [0.0], snowfall_sum: [0.0]), current_weather: CurrentData(time: "test", temperature: 0.0))
+    @State var weather: Weather = GlobalVars.defaultWeather
     
     // Variables dates & prévisions
     @State var currentHour = Calendar.current.component(.hour, from: Date())
@@ -80,7 +66,7 @@ struct MeteoView: View {
                 List {
                     HStack {
                         Spacer()
-                        Text("\(cityName != "" ? cityName : "Emplacement inconnu")")
+                        Text("\(cityName != "" ? cityName : "Ville inconnue")")
                             .font(.system(size: 30))
                             .frame(height: 35)
                         Spacer()
@@ -223,24 +209,16 @@ struct MeteoView: View {
                 CLLocationManager().requestWhenInUseAuthorization()
                 WeatherAPI().loadData { (weather) in
                     self.weather = weather
+                    self.reverseGeocode()
                     self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
                     self.previsionsbd = [0, 1, 2, 3, 4, 5]
-                    self.reverseGeocode()
                 }
             } else {
                 WeatherRandomAPI().loadData { (weather) in
                     self.weather = weather
-                    self.latitude = weather.latitude
-                    self.longitude = weather.longitude
+                    self.reverseGeocode()
                     self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
                     self.previsionsbd = [0, 1, 2, 3, 4, 5]
-                    self.reverseGeocode()
-                    
-                    print("Latitude de l'objet météo : \(weather.latitude)")
-                    print("Longitude de l'objet météo : \(weather.longitude)")
-                    
-                    print("Latitude de la vue : \(self.latitude)")
-                    print("Longitude de la vue : \(self.longitude)")
                 }
             }
         }

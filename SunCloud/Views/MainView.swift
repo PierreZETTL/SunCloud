@@ -6,7 +6,12 @@
 //
 
 import SwiftUI
-import CoreLocation
+
+class GlobalVars {
+    static var randLatitude: Float = 0.0
+    static var randLongitude: Float = 0.0
+    static var defaultWeather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15], rain: [0.0], cloudcover: [0.0], snowfall: [0.0]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5], rain_sum: [0.0], snowfall_sum: [0.0]), current_weather: CurrentData(time: "test", temperature: 0.0))
+}
 
 struct MainView: View {
     // Configuration pour afficher le fond de la TabView
@@ -21,7 +26,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Ma position", systemImage: "paperplane.fill")
                 }
-            
+
             MapView()
                 .tabItem {
                     Label("Carte", systemImage: "map.fill")
