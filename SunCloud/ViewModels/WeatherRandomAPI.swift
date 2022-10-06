@@ -12,9 +12,7 @@ class WeatherRandomAPI : ObservableObject {
     @Published var weather: Weather = GlobalVars.defaultWeather
     
     func loadData(completion:@escaping (Weather) -> ()) {
-        GlobalVars.randLatitude = Float.random(in: -89...89)
-        GlobalVars.randLongitude = Float.random(in: -179...179)
-        
+        // Affichage des coordonnées aléatoires
         print("Latitude aléatoire : \(GlobalVars.randLatitude)")
         print("Longitude aléatoire : \(GlobalVars.randLongitude)")
         

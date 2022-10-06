@@ -36,6 +36,11 @@ struct MainView: View {
                 .tabItem {
                     Label("Position aléatoire", systemImage: "dice.fill")
                 }
+        }.onAppear {
+            if GlobalVars.randLatitude == 0.0 && GlobalVars.randLongitude == 0.0 {
+                GlobalVars.randLatitude = Float.random(in: -84...84)
+                GlobalVars.randLongitude = Float.random(in: -179...179)
+            }
         }
     }
 }

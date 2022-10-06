@@ -103,46 +103,46 @@ struct MeteoView: View {
                                     }
                                     if weather.hourly.snowfall[i] > 0 {
                                         Image(systemName: "cloud.snow.fill")
-                                            .padding(.horizontal, 10.0)
+                                            .padding(.horizontal, 9.0)
                                             .padding(.vertical, 1.0)
                                             .foregroundColor(Color.white)
                                     } else if weather.hourly.rain[i] > 0 {
                                         Image(systemName: "cloud.rain.fill")
-                                            .padding(.horizontal, 10.0)
+                                            .padding(.horizontal, 9.0)
                                             .padding(.vertical, 1.0)
                                             .foregroundColor(Color.white)
                                     } else if weather.hourly.cloudcover[i] > 0 {
                                         if i < 8 || i > 20 {
                                             Image(systemName: "cloud.moon.fill")
-                                                .padding(.horizontal, 10.0)
+                                                .padding(.horizontal, 9.0)
                                                 .padding(.vertical, 1.0)
                                                 .foregroundColor(Color.white)
                                         } else {
                                             Image(systemName: "cloud.sun.fill")
-                                                .padding(.horizontal, 10.0)
+                                                .padding(.horizontal, 9.0)
                                                 .padding(.vertical, 1.0)
                                                 .foregroundColor(Color.yellow)
                                         }
                                     } else {
                                         if i < 8 || i > 20 {
                                             Image(systemName: "moon.stars.fill")
-                                                .padding(.horizontal, 10.0)
+                                                .padding(.horizontal, 9.0)
                                                 .padding(.vertical, 1.0)
                                                 .foregroundColor(Color.white)
                                         } else {
                                             Image(systemName: "sun.max.fill")
-                                                .padding(.horizontal, 10.0)
+                                                .padding(.horizontal, 9.0)
                                                 .padding(.vertical, 1.0)
                                                 .foregroundColor(Color.yellow)
                                         }
                                     }
                                     if i == currentHour {
                                         Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                            .padding(.horizontal, 10.0)
+                                            .padding(.horizontal, 9.0)
                                             .fontWeight(.semibold)
                                     } else {
                                         Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                            .padding(.horizontal, 10.0)
+                                            .padding(.horizontal, 9.0)
                                     }
                                 }
                             }
@@ -201,6 +201,22 @@ struct MeteoView: View {
                     }
                     .listRowBackground(Color.blue.opacity(0.65))
                 }.scrollContentBackground(.hidden)
+                if type == "random" {
+                    Button("Nouveau lieu") {
+                        GlobalVars.randLatitude = Float.random(in: -89...89)
+                        GlobalVars.randLongitude = Float.random(in: -179...179)
+                        WeatherRandomAPI().loadData { (weather) in
+                            self.weather = weather
+                            self.reverseGeocode()
+                            self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
+                            self.previsionsbd = [0, 1, 2, 3, 4, 5]
+                        }
+                    }
+                    .frame(width: 175, height: 45, alignment: .center)
+                    .background(Color.blue.opacity(0.65))
+                    .cornerRadius(10)
+                    .padding(.bottom, 5)
+                }
             }
             .foregroundColor(Color.white)
         }.accentColor(.white)
