@@ -91,70 +91,72 @@ struct MeteoView: View {
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.blue.opacity(0))
-                Section("🕦 Prévisions sur 5 heures") {
-                    HStack(alignment: .center) {
-                        Spacer()
-                        ForEach(previsionsbh, id: \.self) { i in
-                            VStack(alignment: .center) {
-                                if i == currentHour {
-                                    Text("Act.")
-                                        .padding(.horizontal, 9.0)
-                                        .fontWeight(.semibold)
-                                } else {
-                                    if i > 24 {
-                                        Text("\(i-24) h")
+                Section("🕦 Prévisions sur 10 heures") {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(alignment: .center) {
+                            Spacer()
+                            ForEach(previsionsbh, id: \.self) { i in
+                                VStack(alignment: .center) {
+                                    if i == currentHour {
+                                        Text("Act.")
                                             .padding(.horizontal, 9.0)
+                                            .fontWeight(.semibold)
                                     } else {
-                                        Text("\(i) h")
-                                            .padding(.horizontal, 9.0)
+                                        if i > 23 {
+                                            Text("\(i-24) h")
+                                                .padding(.horizontal, 9.0)
+                                        } else {
+                                            Text("\(i) h")
+                                                .padding(.horizontal, 9.0)
+                                        }
                                     }
-                                }
-                                if weather.hourly.snowfall[i] > 0 {
-                                    Image(systemName: "cloud.snow.fill")
-                                        .padding(.horizontal, 9.0)
-                                        .padding(.vertical, 1.0)
-                                        .foregroundColor(Color.white)
-                                } else if weather.hourly.rain[i] > 0 {
-                                    Image(systemName: "cloud.rain.fill")
-                                        .padding(.horizontal, 9.0)
-                                        .padding(.vertical, 1.0)
-                                        .foregroundColor(Color.white)
-                                } else if weather.hourly.cloudcover[i] > 0 {
-                                    if i < 8 || i > 20 {
-                                        Image(systemName: "cloud.moon.fill")
+                                    if weather.hourly.snowfall[i] > 0 {
+                                        Image(systemName: "cloud.snow.fill")
                                             .padding(.horizontal, 9.0)
                                             .padding(.vertical, 1.0)
                                             .foregroundColor(Color.white)
-                                    } else {
-                                        Image(systemName: "cloud.sun.fill")
-                                            .padding(.horizontal, 9.0)
-                                            .padding(.vertical, 1.0)
-                                            .foregroundColor(Color.yellow)
-                                    }
-                                } else {
-                                    if i < 8 || i > 20 {
-                                        Image(systemName: "moon.stars.fill")
+                                    } else if weather.hourly.rain[i] > 0 {
+                                        Image(systemName: "cloud.rain.fill")
                                             .padding(.horizontal, 9.0)
                                             .padding(.vertical, 1.0)
                                             .foregroundColor(Color.white)
+                                    } else if weather.hourly.cloudcover[i] > 0 {
+                                        if i < 8 || i > 20 {
+                                            Image(systemName: "cloud.moon.fill")
+                                                .padding(.horizontal, 9.0)
+                                                .padding(.vertical, 1.0)
+                                                .foregroundColor(Color.white)
+                                        } else {
+                                            Image(systemName: "cloud.sun.fill")
+                                                .padding(.horizontal, 9.0)
+                                                .padding(.vertical, 1.0)
+                                                .foregroundColor(Color.yellow)
+                                        }
                                     } else {
-                                        Image(systemName: "sun.max.fill")
-                                            .padding(.horizontal, 9.0)
-                                            .padding(.vertical, 1.0)
-                                            .foregroundColor(Color.yellow)
+                                        if i < 8 || i > 20 {
+                                            Image(systemName: "moon.stars.fill")
+                                                .padding(.horizontal, 9.0)
+                                                .padding(.vertical, 1.0)
+                                                .foregroundColor(Color.white)
+                                        } else {
+                                            Image(systemName: "sun.max.fill")
+                                                .padding(.horizontal, 9.0)
+                                                .padding(.vertical, 1.0)
+                                                .foregroundColor(Color.yellow)
+                                        }
                                     }
-                                }
-                                if i == currentHour {
-                                    Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                        .padding(.horizontal, 9.0)
-                                        .fontWeight(.semibold)
-                                } else {
-                                    Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
-                                        .padding(.horizontal, 9.0)
+                                    if i == currentHour {
+                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                            .padding(.horizontal, 9.0)
+                                            .fontWeight(.semibold)
+                                    } else {
+                                        Text("\(String(format: "%.0f", weather.hourly.temperature_2m[i]))°")
+                                            .padding(.horizontal, 9.0)
+                                    }
                                 }
                             }
+                            Spacer()
                         }
-                        Spacer()
                     }
                 }
                 .listRowBackground(Color.blue.opacity(0.65))
@@ -244,7 +246,7 @@ struct MeteoView: View {
                 WeatherAPI().loadData { (weather) in
                     self.weather = weather
                     self.reverseGeocode()
-                    self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4]
+                    self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
                     self.previsionsbd = [0, 1, 2, 3, 4, 5]
                 }
             } else {
