@@ -183,28 +183,28 @@ struct MeteoView: View {
                             Spacer()
                             if i == 0 {
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
-                                    .frame(width: 35, height: 25, alignment: .trailing)
+                                    .frame(width: 45, height: 25, alignment: .trailing)
                                     .fontWeight(.semibold)
                                 Rectangle()
                                     .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
                                            startPoint: .leading,
                                            endPoint: .trailing))
-                                    .frame(width: 60, height: 2)
+                                    .frame(width: 60, height: 2, alignment: .center)
                                     .cornerRadius(25)
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
-                                    .frame(width: 35, height: 25, alignment: .leading)
+                                    .frame(width: 45, height: 25, alignment: .leading)
                                     .fontWeight(.semibold)
                             } else {
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_min[i]))°")
-                                    .frame(width: 35, height: 25, alignment: .trailing)
+                                    .frame(width: 45, height: 25, alignment: .trailing)
                                 Rectangle()
                                     .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 165/255, green: 210/255, blue: 120/255), Color(red: 255/255, green: 180/255, blue: 0/255)]),
                                            startPoint: .leading,
                                            endPoint: .trailing))
-                                    .frame(width: 60, height: 2)
+                                    .frame(width: 60, height: 2, alignment: .center)
                                     .cornerRadius(25)
                                 Text("\(String(format: "%.0f", weather.daily.temperature_2m_max[i]))°")
-                                    .frame(width: 35, height:25, alignment: .leading)
+                                    .frame(width: 45, height:25, alignment: .leading)
                             }
                         }
                     }
