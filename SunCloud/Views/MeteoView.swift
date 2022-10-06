@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreLocation
+import Toast
 
 struct MeteoView: View {
     // Variables d'environnement
@@ -60,6 +61,8 @@ struct MeteoView: View {
     
     // Variable animation fond
     @State private var animateGradient = true
+    
+    let toastRefresh = Toast.default(image: UIImage(systemName: "arrow.clockwise.circle.fill")!, title: "Nouvel emplacement", config: ToastConfiguration(autoHide: true, enablePanToClose: true, displayTime: 0.5, animationTime: 0.2))
         
     var body: some View {
         ZStack {
@@ -315,6 +318,7 @@ struct MeteoView: View {
                                 self.windSpeed = weather.daily.windspeed_10m_max[0]
                                 self.windDirection = weather.daily.winddirection_10m_dominant[0]
                             }
+                            toastRefresh.show()
                         } label: {
                             Image(systemName: "arrow.clockwise.circle.fill")
                                 .imageScale(.large)
@@ -353,6 +357,7 @@ struct MeteoView: View {
                     self.windSpeed = weather.daily.windspeed_10m_max[0]
                     self.windDirection = weather.daily.winddirection_10m_dominant[0]
                 }
+                toastRefresh.show()
             }
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F022FC628EF260A00BC573A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 8F022FC528EF260A00BC573A /* Toast */; };
 		8F1FCA3628EECD7C00F2A16A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1FCA3528EECD7C00F2A16A /* MapView.swift */; };
 		8F45801328E8245900EC35C3 /* WeatherRandomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F45801228E8245900EC35C3 /* WeatherRandomAPI.swift */; };
 		8F5069AB28EEBC0D0006EB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5069AA28EEBC0D0006EB8B /* LaunchScreen.storyboard */; };
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F022FC628EF260A00BC573A /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +187,9 @@
 			dependencies = (
 			);
 			name = SunCloud;
+			packageProductDependencies = (
+				8F022FC528EF260A00BC573A /* Toast */,
+			);
 			productName = SunCloud;
 			productReference = 8FEA025128E631F600E89917 /* SunCloud.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +262,9 @@
 				Base,
 			);
 			mainGroup = 8FEA024828E631F600E89917;
+			packageReferences = (
+				8F022FC428EF260A00BC573A /* XCRemoteSwiftPackageReference "toast-swift" */,
+			);
 			productRefGroup = 8FEA025228E631F600E89917 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -643,6 +651,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F022FC428EF260A00BC573A /* XCRemoteSwiftPackageReference "toast-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BastiaanJansen/toast-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F022FC528EF260A00BC573A /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F022FC428EF260A00BC573A /* XCRemoteSwiftPackageReference "toast-swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FEA024928E631F600E89917 /* Project object */;
 }
