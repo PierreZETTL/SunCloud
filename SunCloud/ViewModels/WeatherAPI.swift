@@ -17,9 +17,9 @@ class WeatherAPI : ObservableObject {
             return
         }
         URLSession.shared.dataTask(with: url) { data, response, error in
-            let weather = try! JSONDecoder().decode(Weather.self, from: data!)
+            let weather = try? JSONDecoder().decode(Weather.self, from: data!)
             DispatchQueue.main.async {
-                completion(weather)
+                completion(weather ?? GlobalVars.defaultWeather)
             }
         }.resume()
     }
