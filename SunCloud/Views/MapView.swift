@@ -53,24 +53,28 @@ struct MapView: View {
                 .padding(.top, 5)
                 Spacer()
                 HStack {
-                    Button("Position actuelle") {
+                    Button {
                         withAnimation {
                             region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
                         }
+                    } label: {
+                        Text("Position actuelle")
+                            .frame(width: 175, height: 45, alignment: .center)
+                            .background(Color(UIColor.tertiarySystemBackground))
+                            .cornerRadius(10)
                     }
-                    .frame(width: 175, height: 45, alignment: .center)
-                    .background(Color(UIColor.tertiarySystemBackground))
-                    .cornerRadius(10)
                     .padding(.bottom, 30)
-                    Button("Position aléatoire") {
+                    Button {
                         withAnimation {
                             region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude)), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
                             self.place = IdentifiablePlace(lat: Double(GlobalVars.randLatitude), long: Double(GlobalVars.randLongitude))
                         }
+                    } label: {
+                        Text("Position aléatoire")
+                            .frame(width: 175, height: 45, alignment: .center)
+                            .background(Color(UIColor.tertiarySystemBackground))
+                            .cornerRadius(10)
                     }
-                    .frame(width: 175, height: 45, alignment: .center)
-                    .background(Color(UIColor.tertiarySystemBackground))
-                    .cornerRadius(10)
                     .padding(.bottom, 30)
                 }
             }

@@ -405,8 +405,8 @@ struct MeteoView: View {
                                 .background(Color.blue.opacity(0.65))
                                 .cornerRadius(15)
                                 .foregroundColor(Color.white)
-                                .padding(.horizontal, 15)
                         }
+                        .padding(.horizontal, 15)
                     }
                     Spacer()
                 }

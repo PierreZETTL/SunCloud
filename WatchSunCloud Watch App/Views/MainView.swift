@@ -59,8 +59,9 @@ struct MainView: View {
                     .background(Color.blue.opacity(0.65))
                     .cornerRadius(15)
                     .foregroundColor(Color.white)
-                    .padding(.horizontal, 15)
-            } .buttonStyle(.plain)
+            }
+            .padding(.horizontal, 15)
+            .buttonStyle(.plain)
         }
         .onAppear {
             // CLLocationManager().requestWhenInUseAuthorization()

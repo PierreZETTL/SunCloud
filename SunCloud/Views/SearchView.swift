@@ -65,7 +65,7 @@ struct SearchView: View {
                         focusTF = true
                     }
                     Spacer()
-                    Button("Valider") {
+                    Button {
                         getCoordinateFrom(address: search) { coordinate, error in
                             guard let coordinate = coordinate, error == nil else { return }
                             // don't forget to update the UI from the main thread
@@ -76,11 +76,13 @@ struct SearchView: View {
                                 searched = true
                             }
                         }
+                    } label: {
+                        Text("Valider")
+                            .foregroundColor(Color.white)
+                            .frame(width: 175, height: 45, alignment: .center)
+                            .background(Color.blue.opacity(0.65))
+                            .cornerRadius(10)
                     }
-                    .foregroundColor(Color.white)
-                    .frame(width: 175, height: 45, alignment: .center)
-                    .background(Color.blue.opacity(0.65))
-                    .cornerRadius(10)
                     .padding(.bottom, 40)
                 }
             } else {
