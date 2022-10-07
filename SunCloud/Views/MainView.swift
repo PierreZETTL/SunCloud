@@ -10,7 +10,7 @@ import SwiftUI
 class GlobalVars {
     static var randLatitude: Float = 0.0
     static var randLongitude: Float = 0.0
-    static var defaultWeather: Weather = Weather(latitude: 10.0, longitude: 10.0, hourly: HourlyData(time: ["2022-07-01T00:00"], temperature_2m: [15], rain: [0.0], cloudcover: [0.0], snowfall: [0.0]), daily: DailyData(time: ["2022-09-30"], temperature_2m_max: [6.5], temperature_2m_min: [4.5], rain_sum: [0.0], snowfall_sum: [0.0], sunrise: ["2022-07-01T18:00"], sunset: ["2022-07-01T06:00"], windspeed_10m_max: [0.0], winddirection_10m_dominant: [0.0]), current_weather: CurrentData(time: "test", temperature: 0.0))
+    static var defaultWeather: Weather = Weather(latitude: 0.0, longitude: 0.0, hourly: HourlyData(time: [""], temperature_2m: [0.0], rain: [0.0], cloudcover: [0.0], snowfall: [0.0]), daily: DailyData(time: [""], temperature_2m_max: [0.0], temperature_2m_min: [0.0], rain_sum: [0.0], snowfall_sum: [0.0], sunrise: [""], sunset: [""], windspeed_10m_max: [0.0], winddirection_10m_dominant: [0.0]), current_weather: CurrentData(time: "", temperature: 0.0))
     
     static var currentTemp: Float = 0.0
     static var currentTempRand: Float = 0.0
