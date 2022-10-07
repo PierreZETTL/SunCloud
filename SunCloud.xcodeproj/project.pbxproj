@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F022FC628EF260A00BC573A /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 8F022FC528EF260A00BC573A /* Toast */; };
 		8F02F7DB28F016FF0069D94E /* WatchSunCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7DA28F016FF0069D94E /* WatchSunCloudApp.swift */; };
 		8F02F7DD28F016FF0069D94E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7DC28F016FF0069D94E /* MainView.swift */; };
 		8F02F7DF28F017000069D94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F02F7DE28F017000069D94E /* Assets.xcassets */; };
@@ -124,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F022FC628EF260A00BC573A /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +369,6 @@
 			);
 			name = SunCloud;
 			packageProductDependencies = (
-				8F022FC528EF260A00BC573A /* Toast */,
 			);
 			productName = SunCloud;
 			productReference = 8FEA025128E631F600E89917 /* SunCloud.app */;
@@ -457,7 +454,6 @@
 			);
 			mainGroup = 8FEA024828E631F600E89917;
 			packageReferences = (
-				8F022FC428EF260A00BC573A /* XCRemoteSwiftPackageReference "toast-swift" */,
 			);
 			productRefGroup = 8FEA025228E631F600E89917 /* Products */;
 			projectDirPath = "";
@@ -1082,25 +1078,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8F022FC428EF260A00BC573A /* XCRemoteSwiftPackageReference "toast-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BastiaanJansen/toast-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8F022FC528EF260A00BC573A /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8F022FC428EF260A00BC573A /* XCRemoteSwiftPackageReference "toast-swift" */;
-			productName = Toast;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FEA024928E631F600E89917 /* Project object */;
 }

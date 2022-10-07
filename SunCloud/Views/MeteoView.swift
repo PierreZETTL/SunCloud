@@ -7,7 +7,6 @@
 
 import SwiftUI
 import CoreLocation
-import Toast
 
 struct MeteoView: View {
     // Variables d'environnement
@@ -65,9 +64,7 @@ struct MeteoView: View {
     
     // Variable animation fond
     @State private var animateGradient = true
-    
-    let toastRefresh = Toast.default(image: UIImage(systemName: "arrow.clockwise.circle.fill")!, title: "Nouvel emplacement", config: ToastConfiguration(autoHide: true, enablePanToClose: true, displayTime: 0.5, animationTime: 0.2))
-        
+
     var body: some View {
         ZStack {
             LinearGradient(colors: [.blue.opacity(0.85), colorScheme != .dark ? .yellow.opacity(0.85) : .orange.opacity(0.85)], startPoint: animateGradient ? .topLeading : .topTrailing, endPoint: animateGradient ? .bottomTrailing : .bottomLeading)
@@ -400,7 +397,6 @@ struct MeteoView: View {
                                     self.nightRaining = false
                                 }
                             }
-                            toastRefresh.show()
                         } label: {
                             Image(systemName: "arrow.clockwise.circle.fill")
                                 .imageScale(.large)
@@ -529,7 +525,6 @@ struct MeteoView: View {
                         self.nightRaining = false
                     }
                 }
-                toastRefresh.show()
             }
         }
     }
