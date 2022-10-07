@@ -50,6 +50,7 @@ struct MapView: View {
                     .cornerRadius(10)
                     .padding(.trailing, 15)
                 }
+                .padding(.top, 5)
                 Spacer()
                 HStack {
                     Button("Position actuelle") {

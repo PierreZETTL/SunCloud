@@ -410,6 +410,7 @@ struct MeteoView: View {
                     }
                     Spacer()
                 }
+                .padding(.top, 5)
             }
         }
         .onAppear {
