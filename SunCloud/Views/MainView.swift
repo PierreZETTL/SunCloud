@@ -42,11 +42,6 @@ struct MainView: View {
                     Label("Ma position", systemImage: "paperplane.fill")
                 }
             
-            SearchView()
-                .tabItem {
-                    Label("Recherche", systemImage: "magnifyingglass")
-                }
-            
             MeteoView(type: "random")
                 .tabItem {
                     Label("Position aléatoire", systemImage: "dice.fill")
@@ -55,6 +50,11 @@ struct MainView: View {
             MapView()
                 .tabItem {
                     Label("Carte", systemImage: "map.fill")
+                }
+            
+            SearchView()
+                .tabItem {
+                    Label("Recherche", systemImage: "magnifyingglass")
                 }
         }.onAppear {
             if GlobalVars.randLatitude == 0.0 && GlobalVars.randLongitude == 0.0 {
