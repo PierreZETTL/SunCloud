@@ -24,7 +24,7 @@ struct MeteoView: View {
     @State var windSpeed: Float = 0.0
     @State var windDirection: Float = 0.0
     
-    // Variable de gel
+    // Variable risques pendant la nuit
     @State var nightFreezing: Bool = false
     @State var nightRaining: Bool = false
     
