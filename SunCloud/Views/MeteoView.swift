@@ -24,6 +24,10 @@ struct MeteoView: View {
     @State var windSpeed: Float = 0.0
     @State var windDirection: Float = 0.0
     
+    // Variable de gel
+    @State var nightFreezing: Bool = false
+    @State var nightRaining: Bool = false
+    
     // Variables position
     @State var cityName = ""
     @State var countryName = ""
@@ -231,6 +235,7 @@ struct MeteoView: View {
                             Image(systemName: "sun.max.fill")
                                 .font(.system(size: 60))
                                 .foregroundColor(Color.yellow)
+                                .frame(height: 55)
                             Spacer()
                             Spacer()
                             Text(self.sunrise)
@@ -248,6 +253,7 @@ struct MeteoView: View {
                             Image(systemName: "moon.fill")
                                 .font(.system(size: 60))
                                 .foregroundColor(Color.white)
+                                .frame(height: 55)
                             Spacer()
                             Spacer()
                             Text(self.sunset)
@@ -267,6 +273,7 @@ struct MeteoView: View {
                             Image(systemName: "wind")
                                 .font(.system(size: 60))
                                 .foregroundColor(Color.white)
+                                .frame(height: 55)
                             Spacer()
                             Spacer()
                             Text("\(String(format: "%.2f", self.windSpeed)) km/h")
@@ -285,10 +292,60 @@ struct MeteoView: View {
                             Image(systemName: "arrowtriangle.forward.fill")
                                 .font(.system(size: 60))
                                 .foregroundColor(Color.orange)
+                                .frame(height: 55)
                             Spacer()
                             Spacer()
                             Text("\(String(format: "%.2f", self.windDirection))°")
                                 .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                        }
+                        .frame(width: 165, height: 165, alignment: .center)
+                        .background(Color.blue.opacity(0.65))
+                        .cornerRadius(10)
+                    }
+                    HStack {
+                        VStack {
+                            Spacer()
+                            Text("Risque de gel")
+                            Text("cette nuit")
+                            Spacer()
+                            Image(systemName: "snowflake.circle.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(Color.white)
+                                .frame(height: 55)
+                            Spacer()
+                            Spacer()
+                            if nightFreezing {
+                                Text("Élevé")
+                                    .font(.system(size: 20, weight: .bold))
+                            } else {
+                                Text("Faible")
+                                    .font(.system(size: 20, weight: .bold))
+                            }
+                            Spacer()
+                        }
+                        .frame(width: 165, height: 165, alignment: .center)
+                        .background(Color.blue.opacity(0.65))
+                        .cornerRadius(10)
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            Text("Risque de pluie")
+                            Text("cette nuit")
+                            Spacer()
+                            Image(systemName: "cloud.moon.rain.fill")
+                                .font(.system(size: 60))
+                                .foregroundColor(Color.white)
+                                .frame(height: 55)
+                            Spacer()
+                            Spacer()
+                            if nightRaining {
+                                Text("Élevé")
+                                    .font(.system(size: 20, weight: .bold))
+                            } else {
+                                Text("Faible")
+                                    .font(.system(size: 20, weight: .bold))
+                            }
                             Spacer()
                         }
                         .frame(width: 165, height: 165, alignment: .center)
@@ -317,6 +374,30 @@ struct MeteoView: View {
                                 self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
                                 self.windSpeed = weather.daily.windspeed_10m_max[0]
                                 self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                                
+                                if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
+                                    weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
+                                    weather.hourly.temperature_2m[24-currentHour+2] <= 0.0 ||
+                                    weather.hourly.temperature_2m[24-currentHour+3] <= 0.0 ||
+                                    weather.hourly.temperature_2m[24-currentHour+4] <= 0.0 ||
+                                    weather.hourly.temperature_2m[24-currentHour+5] <= 0.0 ||
+                                    weather.hourly.temperature_2m[24-currentHour+6] <= 0.0 {
+                                    self.nightFreezing = true
+                                } else {
+                                    self.nightFreezing = false
+                                }
+                                
+                                if weather.hourly.rain[24-currentHour] > 0.0 ||
+                                    weather.hourly.rain[24-currentHour+1] > 0.0 ||
+                                    weather.hourly.rain[24-currentHour+2] > 0.0 ||
+                                    weather.hourly.rain[24-currentHour+3] > 0.0 ||
+                                    weather.hourly.rain[24-currentHour+4] > 0.0 ||
+                                    weather.hourly.rain[24-currentHour+5] > 0.0 ||
+                                    weather.hourly.rain[24-currentHour+6] > 0.0 {
+                                    self.nightRaining = true
+                                } else {
+                                    self.nightRaining = false
+                                }
                             }
                             toastRefresh.show()
                         } label: {
@@ -345,6 +426,30 @@ struct MeteoView: View {
                     self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
                     self.windSpeed = weather.daily.windspeed_10m_max[0]
                     self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                    
+                    if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+2] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+3] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+4] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+5] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+6] <= 0.0 {
+                        self.nightFreezing = true
+                    } else {
+                        self.nightFreezing = false
+                    }
+                    
+                    if weather.hourly.rain[24-currentHour] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+1] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+2] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+3] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+4] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+5] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+6] > 0.0 {
+                        self.nightRaining = true
+                    } else {
+                        self.nightRaining = false
+                    }
                 }
             } else {
                 WeatherRandomAPI().loadData { (weather) in
@@ -356,6 +461,30 @@ struct MeteoView: View {
                     self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
                     self.windSpeed = weather.daily.windspeed_10m_max[0]
                     self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                    
+                    if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+2] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+3] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+4] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+5] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+6] <= 0.0 {
+                        self.nightFreezing = true
+                    } else {
+                        self.nightFreezing = false
+                    }
+                    
+                    if weather.hourly.rain[24-currentHour] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+1] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+2] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+3] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+4] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+5] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+6] > 0.0 {
+                        self.nightRaining = true
+                    } else {
+                        self.nightRaining = false
+                    }
                 }
                 toastRefresh.show()
             }
