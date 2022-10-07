@@ -33,37 +33,41 @@ struct SearchView: View {
                     }
                 }
             if !searched {
-                VStack(alignment: .center) {
-                    Text("Recherche")
-                        .foregroundColor(Color.white)
-                        .fontWeight(.bold)
-                        .font(.system(size: 50))
-                        .padding(.top, 50)
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color.gray.opacity(0.5))
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(Color.white)
-                            ZStack(alignment: .leading) {
-                                if search.isEmpty {
-                                    Text("Nom de ville, pays, ...")
-                                        .foregroundColor(Color.white.opacity(0.5))
-                                }
-                                TextField("", text: $search)
+                ScrollView {
+                    VStack(alignment: .center) {
+                        Text("Recherche")
+                            .foregroundColor(Color.white)
+                            .fontWeight(.bold)
+                            .font(.system(size: 50))
+                            .padding(.top, 50)
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color.gray.opacity(0.5))
+                            HStack {
+                                Image(systemName: "magnifyingglass")
                                     .foregroundColor(Color.white)
-                                    .focused($focusTF)
+                                ZStack(alignment: .leading) {
+                                    if search.isEmpty {
+                                        Text("Nom de ville, pays, ...")
+                                            .foregroundColor(Color.white.opacity(0.5))
+                                    }
+                                    TextField("", text: $search)
+                                        .foregroundColor(Color.white)
+                                        .focused($focusTF)
+                                }
                             }
+                            .padding(.leading, 15)
                         }
-                        .padding(.leading, 15)
+                        .frame(height: 40)
+                        .cornerRadius(13)
+                        .padding(.top, 60)
+                        .padding(.horizontal, 25)
+                        .onTapGesture {
+                            focusTF = true
+                        }
                     }
-                    .frame(height: 40)
-                    .cornerRadius(13)
-                    .padding(.top, 60)
-                    .padding(.horizontal, 25)
-                    .onTapGesture {
-                        focusTF = true
-                    }
+                }
+                VStack(alignment: .center) {
                     Spacer()
                     Button {
                         getCoordinateFrom(address: search) { coordinate, error in
