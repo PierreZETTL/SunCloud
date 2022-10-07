@@ -91,6 +91,7 @@ struct MeteoView: View {
                                 .frame(height: 35)
                             Spacer()
                         }
+                        .padding(.bottom, 5)
                         HStack {
                             Spacer()
                             Text("\(String(format: "%.0f", weather.current_weather.temperature))°")
