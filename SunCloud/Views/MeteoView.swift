@@ -42,7 +42,7 @@ struct MeteoView: View {
         }
     }
     func reverseGeocode() {
-        let location = type != "random" ? CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0) : CLLocation(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude))
+        let location = type == "default" ? CLLocation(latitude: CLLocationManager().location?.coordinate.latitude ?? 0.0, longitude: CLLocationManager().location?.coordinate.longitude ?? 0.0) : type == "random" ? CLLocation(latitude: CLLocationDegrees(GlobalVars.randLatitude), longitude: CLLocationDegrees(GlobalVars.randLongitude)) : CLLocation(latitude: CLLocationDegrees(GlobalVars.searchLatitude), longitude: CLLocationDegrees(GlobalVars.searchLongitude))
         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
             guard let placemark = placemarks?.first else { return }
             let reversedGeoLocation = ReversedGeoLocation(with: placemark)
@@ -416,7 +416,7 @@ struct MeteoView: View {
             }
         }
         .onAppear {
-            if self.type != "random" {
+            if self.type == "default" {
                 CLLocationManager().requestWhenInUseAuthorization()
                 WeatherAPI().loadData { (weather) in
                     self.weather = weather
@@ -457,7 +457,43 @@ struct MeteoView: View {
                 WeatherRandomAPI().loadData { (weather) in
                     GlobalVars.currentTempRand = weather.current_weather.temperature
                 }
-            } else {
+            } else if type == "search" {
+                WeatherSearchAPI().loadData { (weather) in
+                    self.weather = weather
+                    self.reverseGeocode()
+                    self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
+                    self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
+                    self.sunset = String(weather.daily.sunset[0].dropFirst(11))
+                    self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
+                    self.windSpeed = weather.daily.windspeed_10m_max[0]
+                    self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                    GlobalVars.currentTempRand = weather.current_weather.temperature
+                    
+                    if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+2] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+3] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+4] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+5] <= 0.0 ||
+                        weather.hourly.temperature_2m[24-currentHour+6] <= 0.0 {
+                        self.nightFreezing = true
+                    } else {
+                        self.nightFreezing = false
+                    }
+                    
+                    if weather.hourly.rain[24-currentHour] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+1] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+2] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+3] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+4] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+5] > 0.0 ||
+                        weather.hourly.rain[24-currentHour+6] > 0.0 {
+                        self.nightRaining = true
+                    } else {
+                        self.nightRaining = false
+                    }
+                }
+            } else if type == "random" {
                 WeatherRandomAPI().loadData { (weather) in
                     self.weather = weather
                     self.reverseGeocode()
