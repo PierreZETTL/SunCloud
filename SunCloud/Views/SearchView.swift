@@ -18,6 +18,7 @@ struct SearchView: View {
     
     @State var search = ""
     @State var searched = false
+    @FocusState private var focusTF: Bool
     
     // Variable animation fond
     @State private var animateGradient = true
@@ -51,6 +52,7 @@ struct SearchView: View {
                                 }
                                 TextField("", text: $search)
                                     .foregroundColor(Color.white)
+                                    .focused($focusTF)
                             }
                         }
                         .padding(.leading, 15)
@@ -59,6 +61,9 @@ struct SearchView: View {
                     .cornerRadius(13)
                     .padding(.top, 60)
                     .padding(.horizontal, 25)
+                    .onTapGesture {
+                        focusTF = true
+                    }
                     Spacer()
                     Button("Valider") {
                         getCoordinateFrom(address: search) { coordinate, error in
