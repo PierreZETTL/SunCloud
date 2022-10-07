@@ -374,6 +374,7 @@ struct MeteoView: View {
                                 self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
                                 self.windSpeed = weather.daily.windspeed_10m_max[0]
                                 self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                                GlobalVars.currentTempRand = weather.current_weather.temperature
                                 
                                 if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
                                     weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
@@ -426,6 +427,7 @@ struct MeteoView: View {
                     self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
                     self.windSpeed = weather.daily.windspeed_10m_max[0]
                     self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                    GlobalVars.currentTemp = weather.current_weather.temperature
                     
                     if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
                         weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
@@ -451,6 +453,10 @@ struct MeteoView: View {
                         self.nightRaining = false
                     }
                 }
+                // Chargement température aléatoire pour affichage sur map après ouverture de l'app
+                WeatherRandomAPI().loadData { (weather) in
+                    GlobalVars.currentTempRand = weather.current_weather.temperature
+                }
             } else {
                 WeatherRandomAPI().loadData { (weather) in
                     self.weather = weather
@@ -461,6 +467,7 @@ struct MeteoView: View {
                     self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
                     self.windSpeed = weather.daily.windspeed_10m_max[0]
                     self.windDirection = weather.daily.winddirection_10m_dominant[0]
+                    GlobalVars.currentTempRand = weather.current_weather.temperature
                     
                     if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
                         weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||

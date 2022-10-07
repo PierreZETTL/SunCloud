@@ -31,6 +31,25 @@ struct MapView: View {
             }
             .ignoresSafeArea()
             VStack {
+                HStack {
+                    VStack {
+                        Image(systemName: "paperplane.fill")
+                        Text("\(String(format: "%.0f", GlobalVars.currentTemp))°")
+                    }
+                    .frame(width: 45, height: 45, alignment: .center)
+                    .background(Color(UIColor.tertiarySystemBackground))
+                    .cornerRadius(10)
+                    .padding(.leading, 15)
+                    Spacer()
+                    VStack {
+                        Image(systemName: "dice.fill")
+                        Text("\(String(format: "%.0f", GlobalVars.currentTempRand))°")
+                    }
+                    .frame(width: 45, height: 45, alignment: .center)
+                    .background(Color(UIColor.tertiarySystemBackground))
+                    .cornerRadius(10)
+                    .padding(.trailing, 15)
+                }
                 Spacer()
                 HStack {
                     Button("Position actuelle") {
