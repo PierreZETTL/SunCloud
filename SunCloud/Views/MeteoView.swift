@@ -12,9 +12,6 @@ struct MeteoView: View {
     // Variables d'environnement
     @Environment(\.colorScheme) var colorScheme
     
-    // Variable mode random : Villes uniquement ou aléatoire total
-    @State var onlyLand = false
-    
     // Variable type de vue
     @State var type: String
     
@@ -31,50 +28,7 @@ struct MeteoView: View {
     @State var nightRaining: Bool = false
     
     // Variables position
-    @State var cityName = "" {
-        didSet {
-            if onlyLand == true {
-                if cityName == "" {
-                    GlobalVars.setRandoms()
-                    reverseGeocode()
-                    WeatherRandomAPI().loadData { (weather) in
-                        self.weather = weather
-                        self.previsionsbh = [currentHour, currentHour+1, currentHour+2, currentHour+3, currentHour+4, currentHour+5, currentHour+6, currentHour+7, currentHour+8, currentHour+9]
-                        self.previsionsbd = [0, 1, 2, 3, 4, 5, 6]
-                        self.sunset = String(weather.daily.sunset[0].dropFirst(11))
-                        self.sunrise = String(weather.daily.sunrise[0].dropFirst(11))
-                        self.windSpeed = weather.daily.windspeed_10m_max[0]
-                        self.windDirection = weather.daily.winddirection_10m_dominant[0]
-                        GlobalVars.currentTempRand = weather.current_weather.temperature
-                        
-                        if weather.hourly.temperature_2m[24-currentHour] <= 0.0 ||
-                            weather.hourly.temperature_2m[24-currentHour+1] <= 0.0 ||
-                            weather.hourly.temperature_2m[24-currentHour+2] <= 0.0 ||
-                            weather.hourly.temperature_2m[24-currentHour+3] <= 0.0 ||
-                            weather.hourly.temperature_2m[24-currentHour+4] <= 0.0 ||
-                            weather.hourly.temperature_2m[24-currentHour+5] <= 0.0 ||
-                            weather.hourly.temperature_2m[24-currentHour+6] <= 0.0 {
-                            self.nightFreezing = true
-                        } else {
-                            self.nightFreezing = false
-                        }
-                        
-                        if weather.hourly.rain[24-currentHour] > 0.0 ||
-                            weather.hourly.rain[24-currentHour+1] > 0.0 ||
-                            weather.hourly.rain[24-currentHour+2] > 0.0 ||
-                            weather.hourly.rain[24-currentHour+3] > 0.0 ||
-                            weather.hourly.rain[24-currentHour+4] > 0.0 ||
-                            weather.hourly.rain[24-currentHour+5] > 0.0 ||
-                            weather.hourly.rain[24-currentHour+6] > 0.0 {
-                            self.nightRaining = true
-                        } else {
-                            self.nightRaining = false
-                        }
-                    }
-                }
-            }
-        }
-    }
+    @State var cityName = ""
     @State var countryName = ""
 
     // Récupération infos position
