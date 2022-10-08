@@ -23,6 +23,7 @@
 		8F5069AB28EEBC0D0006EB8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5069AA28EEBC0D0006EB8B /* LaunchScreen.storyboard */; };
 		8F5069B128EEC6A30006EB8B /* MeteoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5069B028EEC6A30006EB8B /* MeteoView.swift */; };
 		8F9AA9C328E6C19A00D255FE /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */; };
+		8FB0D57D28F15624007EA4D6 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 8FB0D57C28F15624007EA4D6 /* Weather.json */; };
 		8FB8070528E83F9700BC5B1E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8070428E83F9700BC5B1E /* WeatherModel.swift */; };
 		8FEA025528E631F600E89917 /* SunCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025428E631F600E89917 /* SunCloudApp.swift */; };
 		8FEA025728E631F600E89917 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA025628E631F600E89917 /* MainView.swift */; };
@@ -84,6 +85,7 @@
 		8F5069AA28EEBC0D0006EB8B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F5069B028EEC6A30006EB8B /* MeteoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoView.swift; sourceTree = "<group>"; };
 		8F9AA9C228E6C19A00D255FE /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		8FB0D57C28F15624007EA4D6 /* Weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Weather.json; path = ../../../../../Desktop/Weather.json; sourceTree = "<group>"; };
 		8FB8070428E83F9700BC5B1E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		8FEA025128E631F600E89917 /* SunCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SunCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FEA025428E631F600E89917 /* SunCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunCloudApp.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		8FEA026428E631F700E89917 /* SunCloudTests */ = {
 			isa = PBXGroup;
 			children = (
+				8FB0D57C28F15624007EA4D6 /* Weather.json */,
 				8FEA026528E631F700E89917 /* SunCloudTests.swift */,
 			);
 			path = SunCloudTests;
@@ -507,6 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FB0D57D28F15624007EA4D6 /* Weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
