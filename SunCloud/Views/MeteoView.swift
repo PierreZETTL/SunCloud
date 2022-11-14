@@ -9,29 +9,29 @@ import SwiftUI
 import CoreLocation
 
 struct MeteoView: View {
-    // Variables d'environnement
+    // Environment vars
     @Environment(\.colorScheme) var colorScheme
     
-    // Variable type de vue
+    // View type vars
     @State var type: String
     
-    // Variables lever / coucher du soleil
+    // Sunrise / sunset vars
     @State var sunrise = ""
     @State var sunset = ""
     
-    // Variables données vent
+    // Wind data vars
     @State var windSpeed: Float = 0.0
     @State var windDirection: Float = 0.0
     
-    // Variable risques pendant la nuit
+    // Night risks data vars
     @State var nightFreezing: Bool = false
     @State var nightRaining: Bool = false
     
-    // Variables position
+    // Location vars
     @State var cityName = ""
     @State var countryName = ""
 
-    // Récupération infos position
+    // Get location informations
     struct ReversedGeoLocation {
         let city: String
         let country: String
@@ -52,17 +52,17 @@ struct MeteoView: View {
         }
     }
     
-    // Variable données météo
+    // Meteo data vars
     @State var weather: Weather = GlobalVars.defaultWeather
     
-    // Variables dates & prévisions
+    // Forecast data
     @State var currentHour = Calendar.current.component(.hour, from: Date())
     @State var currentDay = Calendar.current.component(.weekday, from: Date())
     @State var previsionsbh = [Int]()
     @State var previsionsbd = [Int]()
     let weekdays = [1: "Dimanche", 2: "Lundi", 3: "Mardi", 4: "Mercredi", 5: "Jeudi", 6: "Vendredi", 7: "Samedi"]
     
-    // Variable animation fond
+    // Background animation var
     @State private var animateGradient = true
 
     var body: some View {
@@ -451,7 +451,7 @@ struct MeteoView: View {
                         self.nightRaining = false
                     }
                 }
-                // Chargement température aléatoire pour affichage sur map après ouverture de l'app
+                // Load random location temperature to show on MapView
                 WeatherRandomAPI().loadData { (weather) in
                     GlobalVars.currentTempRand = weather.current_weather.temperature
                 }

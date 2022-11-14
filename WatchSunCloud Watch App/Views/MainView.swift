@@ -11,11 +11,11 @@ import CoreLocation
 struct MainView: View {
     @State var weather: Weather = Weather(latitude: 0.0, longitude: 0.0, current_weather: CurrentData(time: "", temperature: 0.0))
     
-    // Variables position
+    // Location vars
     @State var cityName = ""
     @State var countryName = ""
     
-    // Récupération infos position
+    // Get location informations
     struct ReversedGeoLocation {
         let city: String
         let country: String

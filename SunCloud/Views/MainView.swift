@@ -22,14 +22,14 @@ class GlobalVars {
         GlobalVars.randLatitude = Float.random(in: -84...84)
         GlobalVars.randLongitude = Float.random(in: -179...179)
         
-        // Affichage des coordonnées aléatoires
-        print("Latitude aléatoire : \(GlobalVars.randLatitude)")
-        print("Longitude aléatoire : \(GlobalVars.randLongitude)")
+        // Print random coordinates
+        print("Random latitude: \(GlobalVars.randLatitude)")
+        print("Random longitude : \(GlobalVars.randLongitude)")
     }
 }
 
 struct MainView: View {
-    // Configuration pour afficher le fond de la TabView
+    // Show TabView background
     let appearance: UITabBarAppearance = UITabBarAppearance()
     init() {
         UITabBar.appearance().scrollEdgeAppearance = appearance
