@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F02F7DB28F016FF0069D94E /* WatchSunCloudApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7DA28F016FF0069D94E /* WatchSunCloudApp.swift */; };
-		8F02F7DD28F016FF0069D94E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7DC28F016FF0069D94E /* MainView.swift */; };
-		8F02F7DF28F017000069D94E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F02F7DE28F017000069D94E /* Assets.xcassets */; };
-		8F02F7E228F017000069D94E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F02F7E128F017000069D94E /* Preview Assets.xcassets */; };
-		8F02F7EC28F017000069D94E /* WatchSunCloud_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7EB28F017000069D94E /* WatchSunCloud_Watch_AppTests.swift */; };
-		8F02F7F628F017000069D94E /* WatchSunCloud_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7F528F017000069D94E /* WatchSunCloud_Watch_AppUITests.swift */; };
-		8F02F7F828F017000069D94E /* WatchSunCloud_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F7F728F017000069D94E /* WatchSunCloud_Watch_AppUITestsLaunchTests.swift */; };
-		8F02F80628F01AFA0069D94E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F80528F01AFA0069D94E /* WeatherModel.swift */; };
-		8F02F80828F01B140069D94E /* WeatherRandomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F80728F01B140069D94E /* WeatherRandomAPI.swift */; };
 		8F02F80A28F02DC60069D94E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F80928F02DC60069D94E /* SearchView.swift */; };
 		8F02F80C28F032580069D94E /* WeatherSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F02F80B28F032580069D94E /* WeatherSearchAPI.swift */; };
 		8F1FCA3628EECD7C00F2A16A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1FCA3528EECD7C00F2A16A /* MapView.swift */; };
@@ -35,20 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8F02F7E828F017000069D94E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8FEA024928E631F600E89917 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8F02F7D728F016FF0069D94E;
-			remoteInfo = "WatchSunCloud Watch App";
-		};
-		8F02F7F228F017000069D94E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8FEA024928E631F600E89917 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8F02F7D728F016FF0069D94E;
-			remoteInfo = "WatchSunCloud Watch App";
-		};
 		8FEA026228E631F700E89917 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8FEA024928E631F600E89917 /* Project object */;
@@ -66,18 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8F02F7D828F016FF0069D94E /* WatchSunCloud Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchSunCloud Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F02F7DA28F016FF0069D94E /* WatchSunCloudApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSunCloudApp.swift; sourceTree = "<group>"; };
-		8F02F7DC28F016FF0069D94E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		8F02F7DE28F017000069D94E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8F02F7E128F017000069D94E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8F02F7E728F017000069D94E /* WatchSunCloud Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchSunCloud Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F02F7EB28F017000069D94E /* WatchSunCloud_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSunCloud_Watch_AppTests.swift; sourceTree = "<group>"; };
-		8F02F7F128F017000069D94E /* WatchSunCloud Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WatchSunCloud Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F02F7F528F017000069D94E /* WatchSunCloud_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSunCloud_Watch_AppUITests.swift; sourceTree = "<group>"; };
-		8F02F7F728F017000069D94E /* WatchSunCloud_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSunCloud_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8F02F80528F01AFA0069D94E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
-		8F02F80728F01B140069D94E /* WeatherRandomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRandomAPI.swift; sourceTree = "<group>"; };
 		8F02F80928F02DC60069D94E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8F02F80B28F032580069D94E /* WeatherSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchAPI.swift; sourceTree = "<group>"; };
 		8F1FCA3528EECD7C00F2A16A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -100,27 +65,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8F02F7D528F016FF0069D94E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F02F7E428F017000069D94E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F02F7EE28F017000069D94E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8FEA024E28E631F600E89917 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -145,68 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8F02F7D928F016FF0069D94E /* WatchSunCloud Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F7DA28F016FF0069D94E /* WatchSunCloudApp.swift */,
-				8F02F80428F01AE40069D94E /* Models */,
-				8F02F80328F01ADD0069D94E /* ViewModels */,
-				8F02F80228F01AC40069D94E /* Views */,
-				8F02F7DE28F017000069D94E /* Assets.xcassets */,
-				8F02F7E028F017000069D94E /* Preview Content */,
-			);
-			path = "WatchSunCloud Watch App";
-			sourceTree = "<group>";
-		};
-		8F02F7E028F017000069D94E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F7E128F017000069D94E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		8F02F7EA28F017000069D94E /* WatchSunCloud Watch AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F7EB28F017000069D94E /* WatchSunCloud_Watch_AppTests.swift */,
-			);
-			path = "WatchSunCloud Watch AppTests";
-			sourceTree = "<group>";
-		};
-		8F02F7F428F017000069D94E /* WatchSunCloud Watch AppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F7F528F017000069D94E /* WatchSunCloud_Watch_AppUITests.swift */,
-				8F02F7F728F017000069D94E /* WatchSunCloud_Watch_AppUITestsLaunchTests.swift */,
-			);
-			path = "WatchSunCloud Watch AppUITests";
-			sourceTree = "<group>";
-		};
-		8F02F80228F01AC40069D94E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F7DC28F016FF0069D94E /* MainView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8F02F80328F01ADD0069D94E /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F80728F01B140069D94E /* WeatherRandomAPI.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8F02F80428F01AE40069D94E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8F02F80528F01AFA0069D94E /* WeatherModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		8FB8070628E83FA200BC5B1E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,9 +124,6 @@
 				8FEA025328E631F600E89917 /* SunCloud */,
 				8FEA026428E631F700E89917 /* SunCloudTests */,
 				8FEA026E28E631F700E89917 /* SunCloudUITests */,
-				8F02F7D928F016FF0069D94E /* WatchSunCloud Watch App */,
-				8F02F7EA28F017000069D94E /* WatchSunCloud Watch AppTests */,
-				8F02F7F428F017000069D94E /* WatchSunCloud Watch AppUITests */,
 				8FEA025228E631F600E89917 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -255,9 +134,6 @@
 				8FEA025128E631F600E89917 /* SunCloud.app */,
 				8FEA026128E631F700E89917 /* SunCloudTests.xctest */,
 				8FEA026B28E631F700E89917 /* SunCloudUITests.xctest */,
-				8F02F7D828F016FF0069D94E /* WatchSunCloud Watch App.app */,
-				8F02F7E728F017000069D94E /* WatchSunCloud Watch AppTests.xctest */,
-				8F02F7F128F017000069D94E /* WatchSunCloud Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,59 +181,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F02F7D728F016FF0069D94E /* WatchSunCloud Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8F02F7FF28F017000069D94E /* Build configuration list for PBXNativeTarget "WatchSunCloud Watch App" */;
-			buildPhases = (
-				8F02F7D428F016FF0069D94E /* Sources */,
-				8F02F7D528F016FF0069D94E /* Frameworks */,
-				8F02F7D628F016FF0069D94E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WatchSunCloud Watch App";
-			productName = "WatchSunCloud Watch App";
-			productReference = 8F02F7D828F016FF0069D94E /* WatchSunCloud Watch App.app */;
-			productType = "com.apple.product-type.application";
-		};
-		8F02F7E628F017000069D94E /* WatchSunCloud Watch AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8F02F80028F017000069D94E /* Build configuration list for PBXNativeTarget "WatchSunCloud Watch AppTests" */;
-			buildPhases = (
-				8F02F7E328F017000069D94E /* Sources */,
-				8F02F7E428F017000069D94E /* Frameworks */,
-				8F02F7E528F017000069D94E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8F02F7E928F017000069D94E /* PBXTargetDependency */,
-			);
-			name = "WatchSunCloud Watch AppTests";
-			productName = "WatchSunCloud Watch AppTests";
-			productReference = 8F02F7E728F017000069D94E /* WatchSunCloud Watch AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		8F02F7F028F017000069D94E /* WatchSunCloud Watch AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8F02F80128F017000069D94E /* Build configuration list for PBXNativeTarget "WatchSunCloud Watch AppUITests" */;
-			buildPhases = (
-				8F02F7ED28F017000069D94E /* Sources */,
-				8F02F7EE28F017000069D94E /* Frameworks */,
-				8F02F7EF28F017000069D94E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8F02F7F328F017000069D94E /* PBXTargetDependency */,
-			);
-			name = "WatchSunCloud Watch AppUITests";
-			productName = "WatchSunCloud Watch AppUITests";
-			productReference = 8F02F7F128F017000069D94E /* WatchSunCloud Watch AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		8FEA025028E631F600E89917 /* SunCloud */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FEA027528E631F700E89917 /* Build configuration list for PBXNativeTarget "SunCloud" */;
@@ -423,17 +246,6 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					8F02F7D728F016FF0069D94E = {
-						CreatedOnToolsVersion = 14.0.1;
-					};
-					8F02F7E628F017000069D94E = {
-						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 8F02F7D728F016FF0069D94E;
-					};
-					8F02F7F028F017000069D94E = {
-						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 8F02F7D728F016FF0069D94E;
-					};
 					8FEA025028E631F600E89917 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -465,37 +277,11 @@
 				8FEA025028E631F600E89917 /* SunCloud */,
 				8FEA026028E631F700E89917 /* SunCloudTests */,
 				8FEA026A28E631F700E89917 /* SunCloudUITests */,
-				8F02F7D728F016FF0069D94E /* WatchSunCloud Watch App */,
-				8F02F7E628F017000069D94E /* WatchSunCloud Watch AppTests */,
-				8F02F7F028F017000069D94E /* WatchSunCloud Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8F02F7D628F016FF0069D94E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F02F7E228F017000069D94E /* Preview Assets.xcassets in Resources */,
-				8F02F7DF28F017000069D94E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F02F7E528F017000069D94E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F02F7EF28F017000069D94E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8FEA024F28E631F600E89917 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -524,34 +310,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8F02F7D428F016FF0069D94E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F02F80828F01B140069D94E /* WeatherRandomAPI.swift in Sources */,
-				8F02F7DD28F016FF0069D94E /* MainView.swift in Sources */,
-				8F02F80628F01AFA0069D94E /* WeatherModel.swift in Sources */,
-				8F02F7DB28F016FF0069D94E /* WatchSunCloudApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F02F7E328F017000069D94E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F02F7EC28F017000069D94E /* WatchSunCloud_Watch_AppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8F02F7ED28F017000069D94E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8F02F7F628F017000069D94E /* WatchSunCloud_Watch_AppUITests.swift in Sources */,
-				8F02F7F828F017000069D94E /* WatchSunCloud_Watch_AppUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8FEA024D28E631F600E89917 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -588,16 +346,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8F02F7E928F017000069D94E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8F02F7D728F016FF0069D94E /* WatchSunCloud Watch App */;
-			targetProxy = 8F02F7E828F017000069D94E /* PBXContainerItemProxy */;
-		};
-		8F02F7F328F017000069D94E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8F02F7D728F016FF0069D94E /* WatchSunCloud Watch App */;
-			targetProxy = 8F02F7F228F017000069D94E /* PBXContainerItemProxy */;
-		};
 		8FEA026328E631F700E89917 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8FEA025028E631F600E89917 /* SunCloud */;
@@ -611,150 +359,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		8F02F7F928F017000069D94E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchSunCloud Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = UMCL8U74S6;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = SunCloud;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location required to get local weather data.";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.pierrezettl.SunCloud;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloud.WatchSunCloud;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		8F02F7FA28F017000069D94E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchSunCloud Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = UMCL8U74S6;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = SunCloud;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location required to get local weather data.";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.pierrezettl.SunCloud;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pierrezettl.SunCloud.WatchSunCloud;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		8F02F7FB28F017000069D94E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UMCL8U74S6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pierrezettl.WatchSunCloud-Watch-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchSunCloud Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchSunCloud Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		8F02F7FC28F017000069D94E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UMCL8U74S6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pierrezettl.WatchSunCloud-Watch-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchSunCloud Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WatchSunCloud Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
-		8F02F7FD28F017000069D94E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UMCL8U74S6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pierrezettl.WatchSunCloud-Watch-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "WatchSunCloud Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		8F02F7FE28F017000069D94E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UMCL8U74S6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pierrezettl.WatchSunCloud-Watch-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				TEST_TARGET_NAME = "WatchSunCloud Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Release;
-		};
 		8FEA027328E631F700E89917 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -880,6 +484,7 @@
 				DEVELOPMENT_TEAM = UMCL8U74S6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SunCloud;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location required to get local weather data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -915,6 +520,7 @@
 				DEVELOPMENT_TEAM = UMCL8U74S6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SunCloud;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.weather";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location required to get local weather data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -1018,33 +624,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F02F7FF28F017000069D94E /* Build configuration list for PBXNativeTarget "WatchSunCloud Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8F02F7F928F017000069D94E /* Debug */,
-				8F02F7FA28F017000069D94E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8F02F80028F017000069D94E /* Build configuration list for PBXNativeTarget "WatchSunCloud Watch AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8F02F7FB28F017000069D94E /* Debug */,
-				8F02F7FC28F017000069D94E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8F02F80128F017000069D94E /* Build configuration list for PBXNativeTarget "WatchSunCloud Watch AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8F02F7FD28F017000069D94E /* Debug */,
-				8F02F7FE28F017000069D94E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8FEA024C28E631F600E89917 /* Build configuration list for PBXProject "SunCloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
